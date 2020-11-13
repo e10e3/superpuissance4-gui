@@ -13,7 +13,7 @@ package superpuissance4;
 public class fenetreJeu extends javax.swing.JFrame {
 
 	Joueur [] ListeJoueur = new Joueur[2];
-    Grille grilleJeu;
+    Grille grilleJeu = new Grille();
     Joueur joueurCourant;
 	
 	/**
@@ -231,6 +231,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				new fenetreJeu().setVisible(true);
 			}

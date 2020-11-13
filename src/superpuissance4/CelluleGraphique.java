@@ -6,6 +6,7 @@
  */
 package superpuissance4;
 
+import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -20,6 +21,12 @@ public class CelluleGraphique extends JButton {
 	
 	public CelluleGraphique(Cellule laCellule) {
 		celluleAssociee = laCellule;
+	}
+	
+	@Override
+	public void paintComponent(Graphics G) {
+		super.paintComponent(G);
+		setIcon(img_vide); // on attribue l'image celluleVide.png
 	}
 	
 }
