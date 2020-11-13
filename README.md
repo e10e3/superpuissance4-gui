@@ -3,6 +3,9 @@ Un projet scolaire de Conception Programmation Objet pour consolider les connais
 
 En version 1.4, avec une interface graphique créée avec JFrame (en cours).
 
+# À faire
+**Bug** : Non-affichage des images lors de l'initialisation.
+
 # Règles du jeu
 Se joue à deux joueurs, chacun son tour soit place un jeton dans la grille, soit récupère un de ses propres jetons, soit (si le joueur possède un désintégrateur) désintègre un jeton adverse.
 

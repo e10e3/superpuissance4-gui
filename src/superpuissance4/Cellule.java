@@ -113,6 +113,7 @@ public class Cellule {
 	 * @return La couleur du jeton
 	 */
     public String lireCouleurDuJeton() {
+		if (jetonCourant == null) return "";
         return jetonCourant.Couleur;
     }
     
