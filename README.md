@@ -11,7 +11,7 @@ Se joue à deux joueurs, chacun son tour soit place un jeton dans la grille, soi
 
 Le premier joueur à aligner 4 de ses jetons (en ligne, colonne ou diagonale) gagne la partie. En revanche, si un joueur enlève un jeton de la grille et cause une victoire des deux joueurs simultanément, ce joueur perd.
 
-- Trou noir : Si un jeton s'arrête sur une cellule contenant un trou noir, il est aspiré et détruit.
+- Trou noir : Si un jeton s'arrête sur une cellule contenant un trou noir, il est aspiré et détruit le trou noir lui aussi une fois utilisé disparait.
 
 - Désintégrateur : Si un jeton s'arrête sur une case contenant un désintégrateur, le joueur ayant posé ce jeton récupère le désintégrateur.
 
