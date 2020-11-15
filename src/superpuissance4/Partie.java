@@ -102,6 +102,7 @@ public class Partie {
         } /*
              
          
+         
          // CODE DE BASE 
 		/*
 		* Placement des trous noirs.
