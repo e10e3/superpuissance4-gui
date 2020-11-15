@@ -63,6 +63,42 @@ public class Grille {
 		}
 		return true;
     }
+	
+	/**
+	 * Ajoute le jeton dans la colonne ciblée, sur la cellule vide la plus
+	 * basse, avec traitement local du joueur. Renvoie faux si la colonne
+	 * était pleine.
+	 * @param joueur Le joueur qui effectue l'action
+	 * @param j La colonne cible
+	 * @return Succès de l'opération
+	 */
+	/*
+	* Méthode dupliquée de l'originale pour enlever localement le jeton.
+	*/
+    public boolean ajouterJetonDansColonne(Joueur joueur, int j) {
+		if (colonneRemplie(j)) return false;
+		
+		int i = nb_lignes-1;
+		while (celluleOccupee(i,j)) {
+			i--;
+		}
+		
+		Jeton jeton_ajout = joueur.ListeJetons[joueur.nombreJetonsRestants - 1];
+		joueur.enleverJeton();
+		
+		Cellules[i][j].jetonCourant = jeton_ajout;
+		
+		/* On active le trou noir, s'il y en a un */
+		if (Cellules[i][j].presenceTrouNoir()) {
+			Cellules[i][j].activerTrouNoir();
+		}
+		/* On récupère le désintégrateur, s'il y en a un */
+		if (Cellules[i][j].presenceDesintegrateur()) {
+			Cellules[i][j].recupererDesintegrateur();
+			joueur.obtenirDesintegrateur();
+		}
+		return true;
+    }
     
 	/**
 	 * Vérifie si la grille est pleine.
