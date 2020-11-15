@@ -70,15 +70,15 @@ public class fenetreJeu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbl_jcourant = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        message = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        btn_col_6 = new javax.swing.JButton();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
         btn_col_3 = new javax.swing.JButton();
         btn_col_4 = new javax.swing.JButton();
         btn_col_5 = new javax.swing.JButton();
+        btn_col_6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,18 +148,18 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_j2_desint.setText("nbdesintJoueur2");
         panneau_info_joueurs.add(lbl_j2_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel10.setText("Infos joueurs");
-        panneau_info_joueurs.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jLabel10.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
+        jLabel10.setText("Informations joueurs :");
+        panneau_info_joueurs.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         getContentPane().add(panneau_info_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 200, 290, 250));
 
         panneau_info_partie.setBackground(new java.awt.Color(99, 224, 99));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel3.setText("Infos jeu");
-        panneau_info_partie.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
+        jLabel3.setText("Informations jeu : ");
+        panneau_info_partie.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         jLabel11.setText("Joueur courant :");
         panneau_info_partie.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
@@ -169,16 +169,11 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        message.setViewportView(jTextArea1);
 
-        panneau_info_partie.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 190));
+        panneau_info_partie.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 250, 130));
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 460, 290, 310));
-
-        btn_col_6.setText("7");
-        btn_col_6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btn_col_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(641, 50, -1, -1));
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 460, 290, 260));
 
         btn_col_0.setText("1");
         btn_col_0.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -209,6 +204,11 @@ public class fenetreJeu extends javax.swing.JFrame {
         btn_col_5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_col_5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 50, -1, -1));
+
+        btn_col_6.setText("7");
+        btn_col_6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_col_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(641, 50, -1, -1));
 
         setBounds(0, 0, 1210, 830);
     }// </editor-fold>//GEN-END:initComponents
@@ -370,7 +370,6 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbl_j1_couleur;
@@ -380,6 +379,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_j2_desint;
     private javax.swing.JLabel lbl_j2_nom;
     private javax.swing.JLabel lbl_jcourant;
+    private javax.swing.JScrollPane message;
     private javax.swing.JTextField nom_joueur1;
     private javax.swing.JTextField nom_joueur2;
     private javax.swing.JPanel panneau_creation_partie;
