@@ -57,6 +57,8 @@ public class Partie {
 	 */
     public void initialiserPartie() {
 		Random rnd = new Random();
+                Random r = new Random();
+               
 		
 		/* Crée la grille si elle n'existait pas, et la vide si elle existait */
         grilleJeu = new Grille();
@@ -68,12 +70,46 @@ public class Partie {
 			ListeJoueur[i].nombreJetonsRestants = 21;
 		}
 		
+         // on initialise les Trous noirs aléatoirement qui sont au nombre de 5
+        
+         // CODE DU PROF MAIS L'INTERFACE N'AFFICHE TOUJOURS PAS LES TROUS NOIRS ET DESINTEGRATEURS
+        /* int compteur = 0 ; // initialisation ud compteur à 0
+        for ( int i = 0 ; i < 5 ; i++ ) {
+        int lignedutrounoir ; // initialisation de la variable lignetrounoir qui prendra comme valeur le numéro de la ligne sur laquelle se trouvera le trou noir
+        int colonnedutrounoir ; // initialisation de la variable colonnetrounoir qui prendra comme valeur le numéro de la colonne sur laquelle se trouvera le trou noir
+        lignedutrounoir = r.nextInt(5); // la ligne du trou noir est choisi aléatoirement entre la ligne 1 et la ligne 6
+        colonnedutrounoir = r.nextInt(6); // la colonne du trou noir est choisi aléatoirement entre la colonne 1 et la colonne 7
+            if (compteur < 2 ) {
+                if ( !grilleJeu.placerDesintegrateur (lignedutrounoir , colonnedutrounoir) ) {
+                    compteur -- ;
+                }
+                compteur ++ ;
+            }
+            if ( !grilleJeu.placerTrouNoir (lignedutrounoir , colonnedutrounoir) ) {
+                i-- ;
+            }
+        } 
+    
+        // il reste donc plus qu'à placer trois désintégrateurs car 2 sont déja sur des trous noirs
+        for ( int i = 0 ; i < 3 ; i ++ ) { // on fait tourner la boucle 2 fois pour bien avoir 2 désintégrateurs
+            int lignedudesintegrateur ;
+            int colonnedudesintegrateur ;
+            lignedudesintegrateur = r.nextInt(6); // la ligne du desintegrateur est choisi aléatoirement entre la ligne 1 et la ligne 6
+            colonnedudesintegrateur = r.nextInt(7); // la colonne du desintegrateur est choisi aléatoirement entre la colonne 1 et la colonne 7
+        if ( !grilleJeu.placerDesintegrateur (lignedudesintegrateur , colonnedudesintegrateur) ) {
+                i-- ;
+            }
+        } /*
+             
+         
+         // CODE DE BASE 
 		/*
 		* Placement des trous noirs.
 		* Si il y a déjà un trou noir à l'endroit où on peut en placer un, on
 		* réessaye à un autre endroit.
 		* On en profite pour placer les deux désintégrateurs cachés.
 		*/
+                
 		for (int k = 0; k < 5; k++) {
 			int i = rnd.nextInt(grilleJeu.nb_lignes);
 			int j = rnd.nextInt(grilleJeu.nb_colonnes);
@@ -88,22 +124,23 @@ public class Partie {
 		}
 		
 		/* Placement des 3 désintégrateurs restants */
+                
 		for (int k = 0; k < 3; k++) {
 			int i = rnd.nextInt(grilleJeu.nb_lignes);
 			int j = rnd.nextInt(grilleJeu.nb_colonnes);
 			
-			/*
-			* Il ne faut pas qu'il y ait un désintégrateur sur la case, ni un
-			* trou noir ()seulement deux désintégrateurs sur des cases de trou noir).
+			
+                        /* Il ne faut pas qu'il y ait un désintégrateur sur la case, ni un
+			trou noir ()seulement deux désintégrateurs sur des cases de trou noir).
 			*/
+                
 			if (grilleJeu.Cellules[i][j].presenceDesintegrateur() || grilleJeu.Cellules[i][j].presenceTrouNoir()) {
 				k--;
 			} else {
 				grilleJeu.placerDesintegrateur(i, j);
 			}
-		}
-		
-    }
+                }
+    } 
     
 	/**
 	 * Lance la partie en tirant au hasard le joueur qui commence.
