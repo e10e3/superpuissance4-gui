@@ -13,8 +13,8 @@ import java.util.Random;
  * @author Émile ROYER
  */
 public class fenetreJeu extends javax.swing.JFrame {
-
-	Joueur [] ListeJoueur = new Joueur[2];
+    // attributs rajouté depuis la classe partie
+    Joueur [] ListeJoueur = new Joueur[2];
     Grille grilleJeu = new Grille();
     Joueur joueurCourant;
 	
@@ -23,14 +23,20 @@ public class fenetreJeu extends javax.swing.JFrame {
 	 */
 	public fenetreJeu() {
 		initComponents();
-		panneau_info_joueurs.setVisible(false);
-		panneau_info_partie.setVisible(false);
-		
+                // on cache les deux panneaux suivant ( en créant deux boolean initailisé à  faux)
+		panneau_info_joueurs.setVisible(false); // ce panneau est maintenant caché
+		panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
+		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
+                
+              //for (int i = 5; i >= 0 ; i-- ) { // on le fait sur les lignes inverses car ajoute en partant du haut
+                   // for (int j = 0 ; j < 7 ; j++ ) { 
+               
+                
 		for (int i = 0; i < grilleJeu.nb_lignes; i++) {
-			for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
-				CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Cellules[i][j]);
-				panneau_grille.add(cellGraph);
-			}
+                    for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
+			CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Cellules[i][j]); // création d'une nouvelle cellule graphique appelé cellGraph
+			panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
+                    }
 		}
 		
 	}
@@ -213,13 +219,16 @@ public class fenetreJeu extends javax.swing.JFrame {
         setBounds(0, 0, 1210, 830);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    // code qui permet de faire une action lorsqu'on clique sur le bouton "Démarrer la partie"
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
-        panneau_info_joueurs.setVisible(true);
-		panneau_info_partie.setVisible(true);
+        
+        panneau_info_joueurs.setVisible(true); // on rend visible le panneau d'informations des joueurs en modifant sont boolean à vrai
+	panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
 		initialiserPartie();
-		panneau_grille.repaint();
+		panneau_grille.repaint(); // raffraichi l'affichage de la partie et le redessine complètement
 		grilleJeu.afficherGrillesurConsole();
-		btn_start.setEnabled(false);
+		btn_start.setEnabled(false); // on désactive le btn_start pour pas que les utilisateurs s'amusent à rafraichir la partie et avoir une nouvelle grille
     }//GEN-LAST:event_btn_startActionPerformed
 
 	/**
@@ -324,14 +333,14 @@ public class fenetreJeu extends javax.swing.JFrame {
     }
 	
 	public void attribuerCouleursAuxJoueurs() {
-		Random rnd = new Random();
-		int index;
+            Random rnd = new Random();
+            int index;
 		
-		String nomJoueur1 = nom_joueur1.getText();
-        ListeJoueur[0] = new Joueur(nomJoueur1);
+            String nomJoueur1 = nom_joueur1.getText(); // le nom joueur est issu de ce qui à été tapé dans la cellule
+            ListeJoueur[0] = new Joueur(nomJoueur1);
         
-        String nomJoueur2 = nom_joueur2.getText();
-        ListeJoueur[1] = new Joueur(nomJoueur2);
+            String nomJoueur2 = nom_joueur2.getText(); // on fait la même chose que pour le joueur 1
+            ListeJoueur[1] = new Joueur(nomJoueur2);
 		
 		index = rnd.nextInt(2);
 		
