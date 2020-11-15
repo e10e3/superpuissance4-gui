@@ -1,8 +1,8 @@
 /*
- * 
+ *
  * Émile ROYER
  * TP 3, v1.4
- * 
+ *
  */
 package superpuissance4;
 
@@ -10,35 +10,33 @@ import java.util.Random;
 
 /**
  * Crée l'interface graphique
+ *
  * @author Émile ROYER
  */
 public class fenetreJeu extends javax.swing.JFrame {
-    // attributs rajouté depuis la classe partie
-    Joueur [] ListeJoueur = new Joueur[2];
-    Grille grilleJeu = new Grille();
-    Joueur joueurCourant;
-	
+
+	// attributs rajoutés depuis la classe partie
+	Joueur[] ListeJoueur = new Joueur[2];
+	Grille grilleJeu = new Grille();
+	Joueur joueurCourant;
+
 	/**
 	 * Creates new form fenetreJeu
 	 */
 	public fenetreJeu() {
 		initComponents();
-                // on cache les deux panneaux suivant ( en créant deux boolean initailisé à  faux)
+		// on cache les deux panneaux suivant ( en créant deux boolean initailisé à  faux)
 		panneau_info_joueurs.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
 		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
-                
-              //for (int i = 5; i >= 0 ; i-- ) { // on le fait sur les lignes inverses car ajoute en partant du haut
-                   // for (int j = 0 ; j < 7 ; j++ ) { 
-               
-                
+
 		for (int i = 0; i < grilleJeu.nb_lignes; i++) {
-                    for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
-			CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Cellules[i][j]); // création d'une nouvelle cellule graphique appelé cellGraph
-			panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
-                    }
+			for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
+				CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Cellules[i][j]); // création d'une nouvelle cellule graphique appelé cellGraph
+				panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
+			}
 		}
-		
+
 	}
 
 	/**
@@ -219,12 +217,11 @@ public class fenetreJeu extends javax.swing.JFrame {
         setBounds(0, 0, 1210, 830);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    // code qui permet de faire une action lorsqu'on clique sur le bouton "Démarrer la partie"
+	// code qui permet de faire une action lorsqu'on clique sur le bouton "Démarrer la partie"
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
-        
-        panneau_info_joueurs.setVisible(true); // on rend visible le panneau d'informations des joueurs en modifant sont boolean à vrai
-	panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
+
+		panneau_info_joueurs.setVisible(true); // on rend visible le panneau d'informations des joueurs en modifant sont boolean à vrai
+		panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
 		initialiserPartie();
 		panneau_grille.repaint(); // raffraichi l'affichage de la partie et le redessine complètement
 		grilleJeu.afficherGrillesurConsole();
@@ -238,7 +235,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		/* Set the Nimbus look and feel */
 		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
 		/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
 		 */
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -266,23 +263,23 @@ public class fenetreJeu extends javax.swing.JFrame {
 			}
 		});
 	}
-	
+
 	public void initialiserPartie() {
 		Random rnd = new Random();
-		
+
 		attribuerCouleursAuxJoueurs();
-		
+
 		lbl_j1_nom.setText(ListeJoueur[0].Nom);
 		lbl_j1_couleur.setText(ListeJoueur[0].Couleur);
-		lbl_j1_desint.setText(ListeJoueur[0].nombreDesintegrateurs+"");
-		
+		lbl_j1_desint.setText(ListeJoueur[0].nombreDesintegrateurs + "");
+
 		lbl_j2_nom.setText(ListeJoueur[1].Nom);
 		lbl_j2_couleur.setText(ListeJoueur[1].Couleur);
-		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs+"");
-		
+		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs + "");
+
 		/* Crée la grille si elle n'existait pas, et la vide si elle existait */
-        grilleJeu = new Grille();
-		
+		grilleJeu = new Grille();
+
 		/* Distribution des jetons */
 		for (int i = 0; i < ListeJoueur.length; i++) {
 			for (int j = 0; j < ListeJoueur[i].ListeJetons.length; j++) {
@@ -290,18 +287,18 @@ public class fenetreJeu extends javax.swing.JFrame {
 			}
 			ListeJoueur[i].nombreJetonsRestants = 21;
 		}
-		
+
 		/* Détermination du joueur courant */
 		joueurCourant = ListeJoueur[rnd.nextInt(2)];
-		
+
 		lbl_jcourant.setText(joueurCourant.Nom);
-		
+
 		/*
 		* Placement des trous noirs.
 		* Si il y a déjà un trou noir à l'endroit où on peut en placer un, on
 		* réessaye à un autre endroit.
 		* On en profite pour placer les deux désintégrateurs cachés.
-		*/
+		 */
 		for (int k = 0; k < 5; k++) {
 			int i = rnd.nextInt(grilleJeu.nb_lignes);
 			int j = rnd.nextInt(grilleJeu.nb_colonnes);
@@ -314,50 +311,50 @@ public class fenetreJeu extends javax.swing.JFrame {
 				}
 			}
 		}
-		
+
 		/* Placement des 3 désintégrateurs restants */
 		for (int k = 0; k < 3; k++) {
 			int i = rnd.nextInt(grilleJeu.nb_lignes);
 			int j = rnd.nextInt(grilleJeu.nb_colonnes);
-			
+
 			/*
 			* Il ne faut pas qu'il y ait un désintégrateur sur la case, ni un
-			* trou noir ()seulement deux désintégrateurs sur des cases de trou noir).
-			*/
+			* trou noir (seulement deux désintégrateurs sur des cases de trou noir).
+			 */
 			if (grilleJeu.Cellules[i][j].presenceDesintegrateur() || grilleJeu.Cellules[i][j].presenceTrouNoir()) {
 				k--;
 			} else {
 				grilleJeu.placerDesintegrateur(i, j);
 			}
 		}
-    }
-	
+	}
+
 	public void attribuerCouleursAuxJoueurs() {
-            Random rnd = new Random();
-            int index;
-		
-            String nomJoueur1 = nom_joueur1.getText(); // le nom joueur est issu de ce qui à été tapé dans la cellule
-            ListeJoueur[0] = new Joueur(nomJoueur1);
-        
-            String nomJoueur2 = nom_joueur2.getText(); // on fait la même chose que pour le joueur 1
-            ListeJoueur[1] = new Joueur(nomJoueur2);
-		
+		Random rnd = new Random();
+		int index;
+
+		String nomJoueur1 = nom_joueur1.getText(); // le nom joueur est issu de ce qui à été tapé dans la cellule
+		ListeJoueur[0] = new Joueur(nomJoueur1);
+
+		String nomJoueur2 = nom_joueur2.getText(); // on fait la même chose que pour le joueur 1
+		ListeJoueur[1] = new Joueur(nomJoueur2);
+
 		index = rnd.nextInt(2);
-		
+
 		/* On colore le nom des couleurs pour plus de lisibilité */
 		ListeJoueur[index].affecterCouleur("rouge");
-		ListeJoueur[1-index].affecterCouleur("jaune");
-		
-		System.out.println(ListeJoueur[0].Nom + " prend la couleur " +
-				ListeJoueur[0].lireCouleur() + ", tandis que " + ListeJoueur[1].Nom +
-				" prend la couleur " + ListeJoueur[1].lireCouleur()+".");
-		
+		ListeJoueur[1 - index].affecterCouleur("jaune");
+
+		System.out.println(ListeJoueur[0].Nom + " prend la couleur "
+				+ ListeJoueur[0].lireCouleur() + ", tandis que " + ListeJoueur[1].Nom
+				+ " prend la couleur " + ListeJoueur[1].lireCouleur() + ".");
+
 //		/*
 //		* On colore le nom des joueurs avec leur couleur pour plus de lisibilité
 //		*/
 //		ListeJoueur[index].Nom = "\033[91m" + ListeJoueur[index].Nom + "\033[0m";
 //		ListeJoueur[1-index].Nom = "\033[93m" + ListeJoueur[1-index].Nom + "\033[0m";
-    }
+	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
