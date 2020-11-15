@@ -85,7 +85,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         panneau_grille.setBackground(new java.awt.Color(254, 255, 255));
         panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 672, 576));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 672, 576));
 
         panneau_creation_partie.setBackground(new java.awt.Color(99, 224, 99));
         panneau_creation_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,8 +95,8 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         jLabel2.setText("Nom du joueur 2 :");
         panneau_creation_partie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-        panneau_creation_partie.add(nom_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 120, -1));
-        panneau_creation_partie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 120, -1));
+        panneau_creation_partie.add(nom_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 120, -1));
+        panneau_creation_partie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 120, -1));
 
         btn_start.setText("Démarrer la partie");
         btn_start.addActionListener(new java.awt.event.ActionListener() {
@@ -178,37 +178,37 @@ public class fenetreJeu extends javax.swing.JFrame {
         btn_col_6.setText("7");
         btn_col_6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_col_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
+        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(641, 50, -1, -1));
 
         btn_col_0.setText("1");
         btn_col_0.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_col_0.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btn_col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+        getContentPane().add(btn_col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 50, -1, -1));
 
         btn_col_1.setText("2");
         btn_col_1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_col_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
+        getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 50, -1, -1));
 
         btn_col_2.setText("3");
         btn_col_2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_col_2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
+        getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 50, -1, -1));
 
         btn_col_3.setText("4");
         btn_col_3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_col_3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
+        getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 50, -1, -1));
 
         btn_col_4.setText("5");
         btn_col_4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_col_4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
+        getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 50, -1, -1));
 
         btn_col_5.setText("6");
         btn_col_5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_col_5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+        getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 50, -1, -1));
 
         setBounds(0, 0, 1210, 830);
     }// </editor-fold>//GEN-END:initComponents
