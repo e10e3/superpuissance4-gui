@@ -6,6 +6,8 @@
  */
 package superpuissance4;
 
+import java.util.Random;
+
 /**
  * Crée l'interface graphique
  *
