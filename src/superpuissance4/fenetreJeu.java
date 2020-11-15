@@ -275,11 +275,9 @@ public class fenetreJeu extends javax.swing.JFrame {
 
 		lbl_j2_nom.setText(ListeJoueur[1].Nom);
 		lbl_j2_couleur.setText(ListeJoueur[1].Couleur);
-		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs + "");
-
-		/* Crée la grille si elle n'existait pas, et la vide si elle existait */
-		grilleJeu = new Grille();
-
+		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs+"");
+		   
+		
 		/* Distribution des jetons */
 		for (int i = 0; i < ListeJoueur.length; i++) {
 			for (int j = 0; j < ListeJoueur[i].ListeJetons.length; j++) {
