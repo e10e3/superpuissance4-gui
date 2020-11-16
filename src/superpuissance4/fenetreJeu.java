@@ -36,7 +36,6 @@ public class fenetreJeu extends javax.swing.JFrame {
 				panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
 			}
 		}
-
 	}
 
 	/**
@@ -62,6 +61,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_j1_nom = new javax.swing.JLabel();
         lbl_j1_couleur = new javax.swing.JLabel();
         lbl_j1_desint = new javax.swing.JLabel();
+        panneau_fond_j1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -70,6 +70,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_j2_couleur = new javax.swing.JLabel();
         lbl_j2_desint = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        panneau_fond_j2 = new javax.swing.JPanel();
         panneau_info_partie = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -132,7 +133,11 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         lbl_j1_desint.setText("nbdesintJoueur1");
         panneau_info_joueurs.add(lbl_j1_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
-        panneau_info_joueurs.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 270, 10));
+
+        panneau_fond_j1.setBackground(new java.awt.Color(99, 224, 99));
+        panneau_fond_j1.setLayout(null);
+        panneau_info_joueurs.add(panneau_fond_j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 80, 80));
+        panneau_info_joueurs.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 270, 10));
 
         jLabel7.setText("Désintégrateurs :");
         panneau_info_joueurs.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
@@ -155,6 +160,10 @@ public class fenetreJeu extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
         jLabel10.setText("Informations joueurs :");
         panneau_info_joueurs.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        panneau_fond_j2.setBackground(new java.awt.Color(99, 224, 99));
+        panneau_fond_j2.setLayout(null);
+        panneau_info_joueurs.add(panneau_fond_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 80, 80));
 
         getContentPane().add(panneau_info_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 200, 360, 250));
 
@@ -265,43 +274,57 @@ public class fenetreJeu extends javax.swing.JFrame {
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
 		joueurDansColonne(0);
-		if (grilleJeu.colonneRemplie(0)) btn_col_0.setEnabled(false);
+		if (grilleJeu.colonneRemplie(0)) {
+			btn_col_0.setEnabled(false);
+		}
 		joueurSuivant();
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
 		joueurDansColonne(1);
-		if (grilleJeu.colonneRemplie(1)) btn_col_1.setEnabled(false);
+		if (grilleJeu.colonneRemplie(1)) {
+			btn_col_1.setEnabled(false);
+		}
 		joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
 		joueurDansColonne(2);
-		if (grilleJeu.colonneRemplie(2)) btn_col_2.setEnabled(false);
+		if (grilleJeu.colonneRemplie(2)) {
+			btn_col_2.setEnabled(false);
+		}
 		joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
 		joueurDansColonne(3);
-		if (grilleJeu.colonneRemplie(3)) btn_col_3.setEnabled(false);
+		if (grilleJeu.colonneRemplie(3)) {
+			btn_col_3.setEnabled(false);
+		}
 		joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
 		joueurDansColonne(4);
-		if (grilleJeu.colonneRemplie(4)) btn_col_4.setEnabled(false);
+		if (grilleJeu.colonneRemplie(4)) {
+			btn_col_4.setEnabled(false);
+		}
 		joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
 		joueurDansColonne(5);
-		if (grilleJeu.colonneRemplie(5)) btn_col_5.setEnabled(false);
+		if (grilleJeu.colonneRemplie(5)) {
+			btn_col_5.setEnabled(false);
+		}
 		joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
 		joueurDansColonne(6);
-		if (grilleJeu.colonneRemplie(6)) btn_col_6.setEnabled(false);
+		if (grilleJeu.colonneRemplie(6)) {
+			btn_col_6.setEnabled(false);
+		}
 		joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
@@ -309,23 +332,29 @@ public class fenetreJeu extends javax.swing.JFrame {
 		boolean resultat;
 		resultat = grilleJeu.ajouterJetonDansColonne(joueurCourant, j);
 		panneau_grille.repaint();
-		
+
 		/* Mise à jour du nombre de désintégrateurs */
-		lbl_j1_desint.setText(ListeJoueur[0].nombreDesintegrateurs+"");
-		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs+"");
-		
+		lbl_j1_desint.setText(ListeJoueur[0].nombreDesintegrateurs + "");
+		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs + "");
+
 		/* Vérification des victoires */
 		boolean v_j1 = grilleJeu.estGagnantePourJoueur(ListeJoueur[0]);
 		boolean v_j2 = grilleJeu.estGagnantePourJoueur(ListeJoueur[1]);
-		
+
 		/* Messages en cas de victoire(s) */
-		if (v_j1 && !v_j2) texte_message.setText("Victoire de "+ListeJoueur[0].Nom+" ! Félicitations.");
-		if (v_j2 && !v_j1) texte_message.setText("Victoire de "+ListeJoueur[2].Nom+" ! Félicitations.");
-		if (v_j1 && v_j2) texte_message.setText(joueurCourant.Nom+" a perdu ! Une faute de jeu, c'est dommage.");
-		
+		if (v_j1 && !v_j2) {
+			texte_message.setText("Victoire de " + ListeJoueur[0].Nom + " ! Félicitations.");
+		}
+		if (v_j2 && !v_j1) {
+			texte_message.setText("Victoire de " + ListeJoueur[2].Nom + " ! Félicitations.");
+		}
+		if (v_j1 && v_j2) {
+			texte_message.setText(joueurCourant.Nom + " a perdu ! Une faute de jeu, c'est dommage.");
+		}
+
 		return resultat;
 	}
-	
+
 	public void joueurSuivant() {
 		if (joueurCourant == ListeJoueur[0]) {
 			joueurCourant = ListeJoueur[1];
@@ -334,7 +363,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		}
 		lbl_jcourant.setText(joueurCourant.Nom);
 	}
-	
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -382,9 +411,8 @@ public class fenetreJeu extends javax.swing.JFrame {
 
 		lbl_j2_nom.setText(ListeJoueur[1].Nom);
 		lbl_j2_couleur.setText(ListeJoueur[1].Couleur);
-		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs+"");
-		
-	
+		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs + "");
+
 		/* Distribution des jetons */
 		for (int i = 0; i < ListeJoueur.length; i++) {
 			for (int j = 0; j < ListeJoueur[i].ListeJetons.length; j++) {
@@ -446,19 +474,20 @@ public class fenetreJeu extends javax.swing.JFrame {
 
 		index = rnd.nextInt(2);
 
-		/* On colore le nom des couleurs pour plus de lisibilité */
 		ListeJoueur[index].affecterCouleur("rouge");
 		ListeJoueur[1 - index].affecterCouleur("jaune");
+		
+		if (index == 0) {
+			panneau_fond_j1.setBackground(java.awt.Color.red);
+			panneau_fond_j2.setBackground(java.awt.Color.yellow);
+		} else {
+			panneau_fond_j1.setBackground(java.awt.Color.yellow);
+			panneau_fond_j2.setBackground(java.awt.Color.red);
+		}
 
 		System.out.println(ListeJoueur[0].Nom + " prend la couleur "
 				+ ListeJoueur[0].lireCouleur() + ", tandis que " + ListeJoueur[1].Nom
 				+ " prend la couleur " + ListeJoueur[1].lireCouleur() + ".");
-
-//		/*
-//		* On colore le nom des joueurs avec leur couleur pour plus de lisibilité
-//		*/
-//		ListeJoueur[index].Nom = "\033[91m" + ListeJoueur[index].Nom + "\033[0m";
-//		ListeJoueur[1-index].Nom = "\033[93m" + ListeJoueur[1-index].Nom + "\033[0m";
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -493,6 +522,8 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JTextField nom_joueur1;
     private javax.swing.JTextField nom_joueur2;
     private javax.swing.JPanel panneau_creation_partie;
+    private javax.swing.JPanel panneau_fond_j1;
+    private javax.swing.JPanel panneau_fond_j2;
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_info_joueurs;
     private javax.swing.JPanel panneau_info_partie;
