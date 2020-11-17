@@ -535,11 +535,11 @@ public class fenetreJeu extends javax.swing.JFrame {
 		
                 // affectation de la couleur du joueur et de ses jetons à la couleur du fond de leur pannel d'informations
 		if (index == 0) {
-			panneau_info_joueur1.setBackground(java.awt.Color.red); // si le joueur prend la couleur jaune alors le fond du panel_info_joueur1 sera jaune
-			panneau_info_joueur2.setBackground(java.awt.Color.yellow); // aisni celui du deuxième joueur sera rouge
+			panneau_info_joueur1.setBackground(new java.awt.Color(199, 83, 83)); // si le joueur prend la couleur jaune alors le fond du panel_info_joueur1 sera jaune
+			panneau_info_joueur1.setBackground(new java.awt.Color(246, 228, 153)); // aisni celui du deuxième joueur sera rouge
 		} else { // on fait l'inverse dans le cas ou j1 et rouge et j2 jaune
-			panneau_info_joueur1.setBackground(java.awt.Color.yellow); 
-			panneau_info_joueur2.setBackground(java.awt.Color.red);
+			panneau_info_joueur1.setBackground(new java.awt.Color(246, 228, 153)); 
+			panneau_info_joueur2.setBackground(new java.awt.Color(199, 83, 83));
 		}
 
 		System.out.println(ListeJoueur[0].Nom + " prend la couleur "
