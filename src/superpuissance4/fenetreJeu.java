@@ -37,10 +37,18 @@ public class fenetreJeu extends javax.swing.JFrame {
 
 				cellGraph.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						texte_message.setText("Un bouton a été cliqué");
+						Cellule c = cellGraph.celluleAssociee;
+						if (c.jetonCourant == null) {
+							texte_message.setText("");
+							return;
+						}
+						if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)) {
+							texte_message.setText(joueurCourant.Nom + " veut récupérer un jeton");
+						} else {
+							texte_message.setText(joueurCourant.Nom + " veut désintégrer un jeton");
+						}
 					}
 				});
-
 				panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
 			}
 		}
