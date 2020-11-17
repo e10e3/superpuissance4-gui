@@ -29,7 +29,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_joueur1.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_joueur2.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
-                // on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
+		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
 
 		for (int i = 0; i < grilleJeu.nb_lignes; i++) {
 			for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
@@ -328,10 +328,9 @@ public class fenetreJeu extends javax.swing.JFrame {
 
 		panneau_info_joueur1.setVisible(true); // on rend visible le panneau d'informations du joueur 1 en modifant sont boolean à vrai
 		panneau_info_joueur2.setVisible(true); // on rend visible le panneau d'informations du joueur 2 en modifant sont boolean à vrai
-                panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
+		panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
 		initialiserPartie();
 		panneau_grille.repaint(); // raffraichit l'affichage de la partie et le redessine complètement
-		grilleJeu.afficherGrillesurConsole();
 		btn_start.setEnabled(false); // on désactive le btn_start pour pas que les utilisateurs s'amusent à rafraichir la partie et avoir une nouvelle grille
     }//GEN-LAST:event_btn_startActionPerformed
 
@@ -539,14 +538,14 @@ public class fenetreJeu extends javax.swing.JFrame {
 
 		ListeJoueur[index].affecterCouleur("rouge");
 		ListeJoueur[1 - index].affecterCouleur("jaune");
-		
-        // affectation de la couleur du joueur et de ses jetons à la couleur du fond de leur panel d'informations
+
+		// affectation de la couleur du joueur et de ses jetons à la couleur du fond de leur panel d'informations
 		if (index == 0) {
-			panneau_info_joueur1.setBackground(java.awt.Color.red); // si le joueur prend la couleur jaune alors le fond du panel_info_joueur1 sera jaune
-			panneau_info_joueur2.setBackground(java.awt.Color.yellow); // ainsi celui du deuxième joueur sera rouge
+			panneau_info_joueur1.setBackground(new java.awt.Color(199, 83, 83)); // si le joueur prend la couleur jaune alors le fond du panel_info_joueur1 sera jaune
+			panneau_info_joueur2.setBackground(new java.awt.Color(246, 228, 153)); // aisni celui du deuxième joueur sera rouge
 		} else { // on fait l'inverse dans le cas ou j1 et rouge et j2 jaune
-			panneau_info_joueur1.setBackground(java.awt.Color.yellow); 
-			panneau_info_joueur2.setBackground(java.awt.Color.red);
+			panneau_info_joueur1.setBackground(new java.awt.Color(246, 228, 153));
+			panneau_info_joueur2.setBackground(new java.awt.Color(199, 83, 83));
 		}
 
 		System.out.println(ListeJoueur[0].Nom + " prend la couleur "
