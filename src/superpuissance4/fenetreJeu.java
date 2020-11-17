@@ -34,6 +34,13 @@ public class fenetreJeu extends javax.swing.JFrame {
 		for (int i = 0; i < grilleJeu.nb_lignes; i++) {
 			for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
 				CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Cellules[i][j]); // création d'une nouvelle cellule graphique appelé cellGraph
+
+				cellGraph.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						texte_message.setText("Un bouton a été cliqué");
+					}
+				});
+
 				panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
 			}
 		}
@@ -484,7 +491,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 
 		/*
 		* Placement des trous noirs.
-		* Si il y a déjà un trou noir à l'endroit où on peut en placer un, on
+		* S'il y a déjà un trou noir à l'endroit où on peut en placer un, on
 		* réessaye à un autre endroit.
 		* On en profite pour placer les deux désintégrateurs cachés.
 		 */
@@ -522,7 +529,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		Random rnd = new Random();
 		int index;
 
-		String nomJoueur1 = nom_joueur1.getText(); // le nom joueur est issu de ce qui à été tapé dans la cellule
+		String nomJoueur1 = nom_joueur1.getText(); // le nom joueur est issu de ce qui a été tapé dans la cellule
 		ListeJoueur[0] = new Joueur(nomJoueur1);
 
 		String nomJoueur2 = nom_joueur2.getText(); // on fait la même chose que pour le joueur 1
@@ -533,10 +540,10 @@ public class fenetreJeu extends javax.swing.JFrame {
 		ListeJoueur[index].affecterCouleur("rouge");
 		ListeJoueur[1 - index].affecterCouleur("jaune");
 		
-                // affectation de la couleur du joueur et de ses jetons à la couleur du fond de leur pannel d'informations
+        // affectation de la couleur du joueur et de ses jetons à la couleur du fond de leur panel d'informations
 		if (index == 0) {
 			panneau_info_joueur1.setBackground(java.awt.Color.red); // si le joueur prend la couleur jaune alors le fond du panel_info_joueur1 sera jaune
-			panneau_info_joueur2.setBackground(java.awt.Color.yellow); // aisni celui du deuxième joueur sera rouge
+			panneau_info_joueur2.setBackground(java.awt.Color.yellow); // ainsi celui du deuxième joueur sera rouge
 		} else { // on fait l'inverse dans le cas ou j1 et rouge et j2 jaune
 			panneau_info_joueur1.setBackground(java.awt.Color.yellow); 
 			panneau_info_joueur2.setBackground(java.awt.Color.red);
