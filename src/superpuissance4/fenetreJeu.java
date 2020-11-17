@@ -43,10 +43,21 @@ public class fenetreJeu extends javax.swing.JFrame {
 							return;
 						}
 						if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)) {
-							texte_message.setText(joueurCourant.Nom + " veut récupérer un jeton");
+							texte_message.setText(joueurCourant.Nom + " récupère un de ses jetons");
+							Jeton j_recup = c.recupererJeton();
+							c.supprimerJeton();
+							joueurCourant.ajouterJeton(j_recup);
+							joueurSuivant();
 						} else {
-							texte_message.setText(joueurCourant.Nom + " veut désintégrer un jeton");
+							if (joueurCourant.nombreDesintegrateurs > 0) {
+								texte_message.setText(joueurCourant.Nom + " désintègre un jeton adverse");
+								c.supprimerJeton();
+								joueurCourant.utiliserDesintegrateur();
+								joueurSuivant();
+							}
 						}
+						grilleJeu.tasserGrille();
+						actualiserAffichage();
 					}
 				});
 				panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
@@ -343,7 +354,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
-		joueurDansColonne(0);
+		jouerDansColonne(0);
 		if (grilleJeu.colonneRemplie(0)) {
 			btn_col_0.setEnabled(false);
 		}
@@ -351,7 +362,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
-		joueurDansColonne(1);
+		jouerDansColonne(1);
 		if (grilleJeu.colonneRemplie(1)) {
 			btn_col_1.setEnabled(false);
 		}
@@ -359,7 +370,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
-		joueurDansColonne(2);
+		jouerDansColonne(2);
 		if (grilleJeu.colonneRemplie(2)) {
 			btn_col_2.setEnabled(false);
 		}
@@ -367,7 +378,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
-		joueurDansColonne(3);
+		jouerDansColonne(3);
 		if (grilleJeu.colonneRemplie(3)) {
 			btn_col_3.setEnabled(false);
 		}
@@ -375,7 +386,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
-		joueurDansColonne(4);
+		jouerDansColonne(4);
 		if (grilleJeu.colonneRemplie(4)) {
 			btn_col_4.setEnabled(false);
 		}
@@ -383,7 +394,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
-		joueurDansColonne(5);
+		jouerDansColonne(5);
 		if (grilleJeu.colonneRemplie(5)) {
 			btn_col_5.setEnabled(false);
 		}
@@ -391,16 +402,28 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
-		joueurDansColonne(6);
+		jouerDansColonne(6);
 		if (grilleJeu.colonneRemplie(6)) {
 			btn_col_6.setEnabled(false);
 		}
 		joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
-	public boolean joueurDansColonne(int j) {
+	public boolean jouerDansColonne(int j) {
 		boolean resultat;
 		resultat = grilleJeu.ajouterJetonDansColonne(joueurCourant, j);
+		
+		actualiserAffichage();
+		
+		return resultat;
+	}
+	
+	/*
+	* On utilise cette cette méthode pour factoriser le code
+	* Elle regroupe toutes les actions qui se font à chaque tour et qui
+	* nécessitent de changer l'affichage
+	*/
+	public void actualiserAffichage() {
 		panneau_grille.repaint();
 
 		/* Mise à jour du nombre de désintégrateurs */
@@ -416,15 +439,13 @@ public class fenetreJeu extends javax.swing.JFrame {
 			texte_message.setText("Victoire de " + ListeJoueur[0].Nom + " ! Félicitations.");
 		}
 		if (v_j2 && !v_j1) {
-			texte_message.setText("Victoire de " + ListeJoueur[2].Nom + " ! Félicitations.");
+			texte_message.setText("Victoire de " + ListeJoueur[1].Nom + " ! Félicitations.");
 		}
 		if (v_j1 && v_j2) {
 			texte_message.setText(joueurCourant.Nom + " a perdu ! Une faute de jeu, c'est dommage.");
 		}
-
-		return resultat;
 	}
-
+	
 	public void joueurSuivant() {
 		if (joueurCourant == ListeJoueur[0]) {
 			joueurCourant = ListeJoueur[1];
