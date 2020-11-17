@@ -1,6 +1,6 @@
 /*
  *
- * Émile ROYER
+ * Clara THEODOLY et Émile ROYER
  * TP 3, v1.4
  *
  */
@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * Implémente les parties. Elles ont une grille et deux joueurs.
  *
- * @author Émile ROYER
+ * @author Clara THEODOLY et Émile ROYER
  */
 public class Partie {
 
@@ -225,7 +225,7 @@ public class Partie {
 				} else {
 					joueur.enleverJeton();
 
-					grilleJeu.tasserGrille(colonne_jouee);
+					grilleJeu.tasserColonne(colonne_jouee);
 					grilleJeu.afficherGrillesurConsole();
 					partieGagnee = grilleJeu.estGagnantePourJoueur(joueur);
 					if (partieGagnee) {
@@ -254,7 +254,7 @@ public class Partie {
 				return false;
 			} else {
 				joueur.ajouterJeton(grilleJeu.recupererJeton(coord_i, coord_j));
-				grilleJeu.tasserGrille(coord_j);
+				grilleJeu.tasserColonne(coord_j);
 				grilleJeu.afficherGrillesurConsole();
 				joueur1Gagne = grilleJeu.estGagnantePourJoueur(ListeJoueur[0]);
 				joueur2Gagne = grilleJeu.estGagnantePourJoueur(ListeJoueur[1]);
@@ -294,7 +294,7 @@ public class Partie {
 			} else {
 				grilleJeu.supprimerJeton(coord_i, coord_j);
 				joueur.utiliserDesintegrateur();
-				grilleJeu.tasserGrille(coord_j);
+				grilleJeu.tasserColonne(coord_j);
 				grilleJeu.afficherGrillesurConsole();
 				joueur1Gagne = grilleJeu.estGagnantePourJoueur(ListeJoueur[0]);
 				joueur2Gagne = grilleJeu.estGagnantePourJoueur(ListeJoueur[1]);

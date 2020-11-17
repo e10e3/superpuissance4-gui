@@ -1,6 +1,6 @@
 /*
  *
- * Émile ROYER
+ * Clara THEODOLY et Émile ROYER
  * TP 3, v1.4
  *
  */
@@ -12,7 +12,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author Émile ROYER
+ * @author Clara THEODOLY et Émile ROYER
  */
 public class CelluleGraphique extends JButton {
 
