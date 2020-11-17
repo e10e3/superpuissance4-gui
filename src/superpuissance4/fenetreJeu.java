@@ -354,74 +354,95 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
-		jouerDansColonne(0);
-		if (grilleJeu.colonneRemplie(0)) {
-			btn_col_0.setEnabled(false);
+		if (jouerDansColonne(0)) {
+			if (grilleJeu.colonneRemplie(0)) {
+				btn_col_0.setEnabled(false);
+			}
+			joueurSuivant();
+		} else {
+			texte_message.setText(joueurCourant.Nom + " n'a plus de jetons");
 		}
-		joueurSuivant();
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
-		jouerDansColonne(1);
-		if (grilleJeu.colonneRemplie(1)) {
-			btn_col_1.setEnabled(false);
+		if (jouerDansColonne(1)) {
+			if (grilleJeu.colonneRemplie(1)) {
+				btn_col_1.setEnabled(false);
+			}
+			joueurSuivant();
+		} else {
+			texte_message.setText(joueurCourant.Nom + " n'a plus de jetons");
 		}
-		joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
-		jouerDansColonne(2);
-		if (grilleJeu.colonneRemplie(2)) {
-			btn_col_2.setEnabled(false);
+		if (jouerDansColonne(2)) {
+			if (grilleJeu.colonneRemplie(2)) {
+				btn_col_2.setEnabled(false);
+			}
+			joueurSuivant();
+		} else {
+			texte_message.setText(joueurCourant.Nom + " n'a plus de jetons");
 		}
-		joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
-		jouerDansColonne(3);
-		if (grilleJeu.colonneRemplie(3)) {
-			btn_col_3.setEnabled(false);
+		if (jouerDansColonne(3)) {
+			if (grilleJeu.colonneRemplie(3)) {
+				btn_col_3.setEnabled(false);
+			}
+			joueurSuivant();
+		} else {
+			texte_message.setText(joueurCourant.Nom + " n'a plus de jetons");
 		}
-		joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
-		jouerDansColonne(4);
-		if (grilleJeu.colonneRemplie(4)) {
-			btn_col_4.setEnabled(false);
+		if (jouerDansColonne(4)) {
+			if (grilleJeu.colonneRemplie(4)) {
+				btn_col_4.setEnabled(false);
+			}
+			joueurSuivant();
+		} else {
+			texte_message.setText(joueurCourant.Nom + " n'a plus de jetons");
 		}
-		joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
-		jouerDansColonne(5);
-		if (grilleJeu.colonneRemplie(5)) {
-			btn_col_5.setEnabled(false);
+		if (jouerDansColonne(5)) {
+			if (grilleJeu.colonneRemplie(5)) {
+				btn_col_5.setEnabled(false);
+			}
+			joueurSuivant();
+		} else {
+			texte_message.setText(joueurCourant.Nom + " n'a plus de jetons");
 		}
-		joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
-		jouerDansColonne(6);
-		if (grilleJeu.colonneRemplie(6)) {
-			btn_col_6.setEnabled(false);
+		if (jouerDansColonne(6)) {
+			if (grilleJeu.colonneRemplie(6)) {
+				btn_col_6.setEnabled(false);
+			}
+			joueurSuivant();
+		} else {
+			texte_message.setText(joueurCourant.Nom + " n'a plus de jetons");
 		}
-		joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
 	public boolean jouerDansColonne(int j) {
 		boolean resultat;
 		resultat = grilleJeu.ajouterJetonDansColonne(joueurCourant, j);
-		
+
 		actualiserAffichage();
-		
+
 		return resultat;
 	}
-	
+
 	/*
 	* On utilise cette cette méthode pour factoriser le code
 	* Elle regroupe toutes les actions qui se font à chaque tour et qui
-	* nécessitent de changer l'affichage
+	* nécessitent de changer l'affichage sans affecter les valeurs de jeu.
 	*/
 	public void actualiserAffichage() {
 		panneau_grille.repaint();
@@ -445,7 +466,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 			texte_message.setText(joueurCourant.Nom + " a perdu ! Une faute de jeu, c'est dommage.");
 		}
 	}
-	
+
 	public void joueurSuivant() {
 		if (joueurCourant == ListeJoueur[0]) {
 			joueurCourant = ListeJoueur[1];
