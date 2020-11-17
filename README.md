@@ -1,10 +1,7 @@
 # superpuissance4
-Un projet scolaire de Conception Programmation Objet pour consolider les connaissances en Java et commencer à utilier Git pour la collaboration.
+Un projet scolaire de Conception Programmation Objet pour consolider les connaissances en Java et commencer à utiliser Git pour la collaboration, créé par Clara THEODOLY et Émile ROYER.
 
-En version 1.4, avec une interface graphique créée avec JFrame (en cours).
-
-# À faire
-Terminer les règles étendues (il manque encore la possibilité de récupérer les jetons).
+En version 1.4, avec une interface graphique créée avec JFrame (en peaufinage).
 
 # Règles du jeu
 Se joue à deux joueurs, chacun son tour soit place un jeton dans la grille, soit récupère un de ses propres jetons, soit (si le joueur possède un désintégrateur) désintègre un jeton adverse.
