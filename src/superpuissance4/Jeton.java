@@ -1,6 +1,6 @@
 /*
  * 
- * Émile ROYER
+ * Clara THEODOLY et Émile ROYER
  * TP 3, v1.4
  * 
  */
@@ -9,7 +9,7 @@ package superpuissance4;
 /**
  * Implémente les jetons. Un jeton n'a qu'un seul attribut : sa couleur, qui le
  * lie au joueur qui l'a placé
- * @author Émile ROYER
+ * @author Clara THEODOLY et Émile ROYER
  */
 public class Jeton {
     

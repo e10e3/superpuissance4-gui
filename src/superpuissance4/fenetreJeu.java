@@ -1,6 +1,6 @@
 /*
  *
- * Émile ROYER
+ * Clara THEODOLY et Émile ROYER
  * TP 3, v1.4
  *
  */
@@ -11,7 +11,7 @@ import java.util.Random;
 /**
  * Crée l'interface graphique
  *
- * @author Émile ROYER
+ * @author Clara THEODOLY et Émile ROYER
  */
 public class fenetreJeu extends javax.swing.JFrame {
 

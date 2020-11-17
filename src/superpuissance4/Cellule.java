@@ -1,6 +1,6 @@
 /*
  *
- * Émile ROYER
+ * Clara THEODOLY et Émile ROYER
  * TP 3, v1.4
  *
  */
@@ -10,7 +10,7 @@ package superpuissance4;
  * Implémente les cellules, qui peuvent contenir un jeton, un trou noir et un
  * désintégrateur.
  *
- * @author Émile ROYER
+ * @author Clara THEODOLY et Émile ROYER
  */
 public class Cellule {
 

@@ -1,6 +1,6 @@
 /*
  *
- * Émile ROYER
+ * Clara THEODOLY et Émile ROYER
  * TP 3, v1.4
  *
  */
@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * Implémente les parties. Elles ont une grille et deux joueurs.
  *
- * @author Émile ROYER
+ * @author Clara THEODOLY et Émile ROYER
  */
 public class Partie {
 
