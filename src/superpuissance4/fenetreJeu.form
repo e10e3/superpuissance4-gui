@@ -374,7 +374,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="55" width="-1" height="-1"/>
+              <AbsoluteConstraints x="130" y="55" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -388,13 +388,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="nbjetonsrestantsJ1">
+        <Component class="javax.swing.JLabel" name="lbl_j1_jetons">
           <Properties>
-            <Property name="text" type="java.lang.String" value="21"/>
+            <Property name="text" type="java.lang.String" value="nbjetonsJoueur1"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="110" y="80" width="-1" height="-1"/>
+              <AbsoluteConstraints x="120" y="80" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -445,7 +445,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="80" y="40" width="-1" height="20"/>
+              <AbsoluteConstraints x="70" y="40" width="-1" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -465,7 +465,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="55" width="-1" height="-1"/>
+              <AbsoluteConstraints x="130" y="55" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -479,13 +479,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="nbjetonsrestantsJ2">
+        <Component class="javax.swing.JLabel" name="lbl_j2_jetons">
           <Properties>
-            <Property name="text" type="java.lang.String" value="21"/>
+            <Property name="text" type="java.lang.String" value="nbjetonsJoueur2"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="110" y="80" width="-1" height="-1"/>
+              <AbsoluteConstraints x="120" y="80" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
