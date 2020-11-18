@@ -118,12 +118,16 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_j2_desint1 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         panneau_fond_j4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        nbjetonsrestantsJ1 = new javax.swing.JLabel();
         panneau_info_joueur2 = new javax.swing.JPanel();
         lbl_j2_nom = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lbl_j2_couleur = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lbl_j2_desint = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        nbjetonsrestantsJ2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -256,7 +260,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_joueur1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Désintégrateurs :");
-        panneau_info_joueur1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        panneau_info_joueur1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 55, -1, -1));
 
         jLabel6.setText("Couleur :");
         panneau_info_joueur1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
@@ -269,7 +273,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_joueur1.add(lbl_j1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         lbl_j1_desint.setText("nbdesintJoueur1");
-        panneau_info_joueur1.add(lbl_j1_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+        panneau_info_joueur1.add(lbl_j1_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 55, -1, -1));
 
         panneau_info_joueurs1.setBackground(new java.awt.Color(99, 224, 99));
         panneau_info_joueurs1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -325,7 +329,13 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         panneau_info_joueur1.add(panneau_info_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 200, 360, 250));
 
-        getContentPane().add(panneau_info_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 360, 90));
+        jLabel5.setText("Jetons restants :");
+        panneau_info_joueur1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        nbjetonsrestantsJ1.setText("21");
+        panneau_info_joueur1.add(nbjetonsrestantsJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+
+        getContentPane().add(panneau_info_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 360, 100));
 
         panneau_info_joueur2.setBackground(new java.awt.Color(162, 234, 198));
         panneau_info_joueur2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -341,12 +351,18 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_joueur2.add(lbl_j2_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, 20));
 
         jLabel7.setText("Désintégrateurs :");
-        panneau_info_joueur2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        panneau_info_joueur2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 55, -1, -1));
 
         lbl_j2_desint.setText("nbdesintJoueur2");
-        panneau_info_joueur2.add(lbl_j2_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+        panneau_info_joueur2.add(lbl_j2_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 55, -1, -1));
 
-        getContentPane().add(panneau_info_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, 360, 120));
+        jLabel10.setText("Jetons restants :");
+        panneau_info_joueur2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        nbjetonsrestantsJ2.setText("21");
+        panneau_info_joueur2.add(nbjetonsrestantsJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+
+        getContentPane().add(panneau_info_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 260, 360, 110));
 
         setBounds(0, 0, 1210, 692);
     }// </editor-fold>//GEN-END:initComponents
@@ -468,6 +484,10 @@ public class fenetreJeu extends javax.swing.JFrame {
 		/* Mise à jour du nombre de désintégrateurs */
 		lbl_j1_desint.setText(ListeJoueur[0].nombreDesintegrateurs + "");
 		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs + "");
+               
+                /* Mise à jour du nombre de jetons qu'il reste a chaques joueurs */
+                nbjetonsrestantsJ1.setText(ListeJoueur[0].nombreJetonsRestants + "");
+                nbjetonsrestantsJ2.setText(ListeJoueur[1].nombreJetonsRestants + "");
 
 		/* Vérification des victoires */
 		boolean v_j1 = grilleJeu.estGagnantePourJoueur(ListeJoueur[0]);
@@ -638,6 +658,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -649,6 +670,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
@@ -667,6 +689,8 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_j2_nom1;
     private javax.swing.JLabel lbl_jcourant;
     private javax.swing.JScrollPane message;
+    private javax.swing.JLabel nbjetonsrestantsJ1;
+    private javax.swing.JLabel nbjetonsrestantsJ2;
     private javax.swing.JTextField nom_joueur1;
     private javax.swing.JTextField nom_joueur2;
     private javax.swing.JPanel panneau_creation_partie;
