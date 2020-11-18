@@ -364,6 +364,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 
     private void btn_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recommencerActionPerformed
 		grilleJeu = new Grille();
+		texte_message.setText("");
 		supprimerCellulesGraphiques();
 		ajouterCellulesGraphiques();
 		initialiserPartie();
