@@ -87,6 +87,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_jcourant = new javax.swing.JLabel();
         message = new javax.swing.JScrollPane();
         texte_message = new javax.swing.JTextArea();
+        btn_recommencer = new javax.swing.JButton();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
@@ -170,6 +171,14 @@ public class fenetreJeu extends javax.swing.JFrame {
         message.setViewportView(texte_message);
 
         panneau_info_partie.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 320, 140));
+
+        btn_recommencer.setText("Recommencer une partie");
+        btn_recommencer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_recommencerActionPerformed(evt);
+            }
+        });
+        panneau_info_partie.add(btn_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 215, -1, -1));
 
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 360, 246));
 
@@ -348,7 +357,8 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_joueur1.setVisible(true); // on rend visible le panneau d'informations du joueur 1 en modifant sont boolean à vrai
 		panneau_info_joueur2.setVisible(true); // on rend visible le panneau d'informations du joueur 2 en modifant sont boolean à vrai
 		panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
-		initialiserPartie();
+		btn_recommencer.setEnabled(false); // le btn pour recommencer une partie n'apparait pas encore
+                initialiserPartie();
 		panneau_grille.repaint(); // raffraichit l'affichage de la partie et le redessine complètement
 		btn_start.setEnabled(false); // on désactive le btn_start pour pas que les utilisateurs s'amusent à rafraichir la partie et avoir une nouvelle grille
     }//GEN-LAST:event_btn_startActionPerformed
@@ -430,6 +440,14 @@ public class fenetreJeu extends javax.swing.JFrame {
 		}
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
+    private void btn_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recommencerActionPerformed
+        grilleJeu = new Grille();
+        actualiserAffichage();
+        initialiserPartie();
+        panneau_grille.repaint();
+        btn_recommencer.setEnabled(false);
+    }//GEN-LAST:event_btn_recommencerActionPerformed
+
 	public boolean jouerDansColonne(int j) {
 		boolean resultat;
 		resultat = grilleJeu.ajouterJetonDansColonne(joueurCourant, j);
@@ -458,12 +476,18 @@ public class fenetreJeu extends javax.swing.JFrame {
 		/* Messages en cas de victoire(s) */
 		if (v_j1 && !v_j2) {
 			texte_message.setText("Victoire de " + ListeJoueur[0].Nom + " ! Félicitations.");
+                        btn_recommencer.setEnabled(true);                       
 		}
 		if (v_j2 && !v_j1) {
 			texte_message.setText("Victoire de " + ListeJoueur[1].Nom + " ! Félicitations.");
+                        btn_recommencer.setEnabled(true);
+                        
 		}
 		if (v_j1 && v_j2) {
 			texte_message.setText(joueurCourant.Nom + " a perdu ! Une faute de jeu, c'est dommage.");
+                        btn_recommencer.setEnabled(true);
+                        
+                        
 		}
 	}
 
@@ -611,6 +635,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_col_4;
     private javax.swing.JButton btn_col_5;
     private javax.swing.JButton btn_col_6;
+    private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
