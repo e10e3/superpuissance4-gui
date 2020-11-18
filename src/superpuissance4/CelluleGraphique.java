@@ -24,7 +24,8 @@ public class CelluleGraphique extends JButton {
 	ImageIcon img_jaune = new javax.swing.ImageIcon(getClass().getResource("/images/jetonJaune.png"));
 	ImageIcon img_rouge = new javax.swing.ImageIcon(getClass().getResource("/images/jetonRouge.png"));
 	ImageIcon img_trouNoir = new javax.swing.ImageIcon(getClass().getResource("/images/trouNoir.png"));
-
+        
+        
 	// constructeur avec en paramètre lacellule
 	public CelluleGraphique(Cellule laCellule) {
 		celluleAssociee = laCellule;
