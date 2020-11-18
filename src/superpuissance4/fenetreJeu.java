@@ -87,6 +87,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_jcourant = new javax.swing.JLabel();
         message = new javax.swing.JScrollPane();
         texte_message = new javax.swing.JTextArea();
+        btn_recommencer = new javax.swing.JButton();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
@@ -100,12 +101,16 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_j1_nom = new javax.swing.JLabel();
         lbl_j1_couleur = new javax.swing.JLabel();
         lbl_j1_desint = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        nbjetonsrestantsJ1 = new javax.swing.JLabel();
         panneau_info_joueur2 = new javax.swing.JPanel();
         lbl_j2_nom = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lbl_j2_couleur = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lbl_j2_desint = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        nbjetonsrestantsJ2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
@@ -154,6 +159,14 @@ public class fenetreJeu extends javax.swing.JFrame {
         message.setViewportView(texte_message);
 
         panneau_info_partie.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 320, 140));
+
+        btn_recommencer.setText("Recommencer une partie");
+        btn_recommencer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_recommencerActionPerformed(evt);
+            }
+        });
+        panneau_info_partie.add(btn_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 215, -1, -1));
 
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 360, 246));
 
@@ -231,7 +244,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_joueur1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Désintégrateurs :");
-        panneau_info_joueur1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        panneau_info_joueur1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 55, -1, -1));
 
         jLabel6.setText("Couleur :");
         panneau_info_joueur1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
@@ -244,9 +257,15 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_joueur1.add(lbl_j1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         lbl_j1_desint.setText("nbdesintJoueur1");
-        panneau_info_joueur1.add(lbl_j1_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+        panneau_info_joueur1.add(lbl_j1_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 55, -1, -1));
 
-        getContentPane().add(panneau_info_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 360, 90));
+        jLabel5.setText("Jetons restants :");
+        panneau_info_joueur1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        nbjetonsrestantsJ1.setText("21");
+        panneau_info_joueur1.add(nbjetonsrestantsJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+
+        getContentPane().add(panneau_info_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 360, 100));
 
         panneau_info_joueur2.setBackground(new java.awt.Color(162, 234, 198));
         panneau_info_joueur2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -262,12 +281,18 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_joueur2.add(lbl_j2_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, 20));
 
         jLabel7.setText("Désintégrateurs :");
-        panneau_info_joueur2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        panneau_info_joueur2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 55, -1, -1));
 
         lbl_j2_desint.setText("nbdesintJoueur2");
-        panneau_info_joueur2.add(lbl_j2_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        panneau_info_joueur2.add(lbl_j2_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 55, -1, -1));
 
-        getContentPane().add(panneau_info_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, 360, 120));
+        jLabel10.setText("Jetons restants :");
+        panneau_info_joueur2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        nbjetonsrestantsJ2.setText("21");
+        panneau_info_joueur2.add(nbjetonsrestantsJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+
+        getContentPane().add(panneau_info_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 260, 360, 110));
 
         setBounds(0, 0, 1210, 692);
     }// </editor-fold>//GEN-END:initComponents
@@ -278,7 +303,8 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_joueur1.setVisible(true); // on rend visible le panneau d'informations du joueur 1 en modifant sont boolean à vrai
 		panneau_info_joueur2.setVisible(true); // on rend visible le panneau d'informations du joueur 2 en modifant sont boolean à vrai
 		panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
-		initialiserPartie();
+		btn_recommencer.setEnabled(false); // le btn pour recommencer une partie n'apparait pas encore
+                initialiserPartie();
 		panneau_grille.repaint(); // raffraichit l'affichage de la partie et le redessine complètement
 		btn_start.setEnabled(false); // on désactive le btn_start pour pas que les utilisateurs s'amusent à rafraichir la partie et avoir une nouvelle grille
     }//GEN-LAST:event_btn_startActionPerformed
@@ -360,6 +386,14 @@ public class fenetreJeu extends javax.swing.JFrame {
 		}
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
+    private void btn_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recommencerActionPerformed
+        grilleJeu = new Grille();
+        actualiserAffichage();
+        initialiserPartie();
+        panneau_grille.repaint();
+        btn_recommencer.setEnabled(false);
+    }//GEN-LAST:event_btn_recommencerActionPerformed
+
 	public boolean jouerDansColonne(int j) {
 		boolean resultat;
 		resultat = grilleJeu.ajouterJetonDansColonne(joueurCourant, j);
@@ -380,6 +414,10 @@ public class fenetreJeu extends javax.swing.JFrame {
 		/* Mise à jour du nombre de désintégrateurs */
 		lbl_j1_desint.setText(ListeJoueur[0].nombreDesintegrateurs + "");
 		lbl_j2_desint.setText(ListeJoueur[1].nombreDesintegrateurs + "");
+               
+                /* Mise à jour du nombre de jetons qu'il reste a chaques joueurs */
+                nbjetonsrestantsJ1.setText(ListeJoueur[0].nombreJetonsRestants + "");
+                nbjetonsrestantsJ2.setText(ListeJoueur[1].nombreJetonsRestants + "");
 
 		/* Vérification des victoires */
 		boolean v_j1 = grilleJeu.estGagnantePourJoueur(ListeJoueur[0]);
@@ -388,12 +426,18 @@ public class fenetreJeu extends javax.swing.JFrame {
 		/* Messages en cas de victoire(s) */
 		if (v_j1 && !v_j2) {
 			texte_message.setText("Victoire de " + ListeJoueur[0].Nom + " ! Félicitations.");
+                        btn_recommencer.setEnabled(true);                       
 		}
 		if (v_j2 && !v_j1) {
 			texte_message.setText("Victoire de " + ListeJoueur[1].Nom + " ! Félicitations.");
+                        btn_recommencer.setEnabled(true);
+                        
 		}
 		if (v_j1 && v_j2) {
 			texte_message.setText(joueurCourant.Nom + " a perdu ! Une faute de jeu, c'est dommage.");
+                        btn_recommencer.setEnabled(true);
+                        
+                        
 		}
 	}
 
@@ -541,12 +585,15 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_col_4;
     private javax.swing.JButton btn_col_5;
     private javax.swing.JButton btn_col_6;
+    private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
@@ -558,6 +605,8 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_j2_nom;
     private javax.swing.JLabel lbl_jcourant;
     private javax.swing.JScrollPane message;
+    private javax.swing.JLabel nbjetonsrestantsJ1;
+    private javax.swing.JLabel nbjetonsrestantsJ2;
     private javax.swing.JTextField nom_joueur1;
     private javax.swing.JTextField nom_joueur2;
     private javax.swing.JPanel panneau_creation_partie;
