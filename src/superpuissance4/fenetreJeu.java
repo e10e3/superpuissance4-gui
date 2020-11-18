@@ -31,38 +31,8 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
 		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
 
-		for (int i = 0; i < grilleJeu.nb_lignes; i++) {
-			for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
-				CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Cellules[i][j]); // création d'une nouvelle cellule graphique appelé cellGraph
-
-				cellGraph.addActionListener(new java.awt.event.ActionListener() {
-					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						Cellule c = cellGraph.celluleAssociee;
-						if (c.jetonCourant == null) {
-							texte_message.setText("");
-							return;
-						}
-						if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)) {
-							texte_message.setText(joueurCourant.Nom + " récupère un de ses jetons");
-							Jeton j_recup = c.recupererJeton();
-							c.supprimerJeton();
-							joueurCourant.ajouterJeton(j_recup);
-							joueurSuivant();
-						} else {
-							if (joueurCourant.nombreDesintegrateurs > 0) {
-								texte_message.setText(joueurCourant.Nom + " désintègre un jeton adverse");
-								c.supprimerJeton();
-								joueurCourant.utiliserDesintegrateur();
-								joueurSuivant();
-							}
-						}
-						grilleJeu.tasserGrille();
-						actualiserAffichage();
-					}
-				});
-				panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
-			}
-		}
+		ajouterCellulesGraphiques();
+		
 	}
 
 	/**
@@ -388,6 +358,8 @@ public class fenetreJeu extends javax.swing.JFrame {
 
     private void btn_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recommencerActionPerformed
 		grilleJeu = new Grille();
+		supprimerCellulesGraphiques();
+		ajouterCellulesGraphiques();
 		initialiserPartie();
 		actualiserAffichage();
 		btn_recommencer.setEnabled(false);
@@ -402,7 +374,53 @@ public class fenetreJeu extends javax.swing.JFrame {
 		return resultat;
 	}
 
-	/*
+	/**
+	 * Méthode de factorisation
+	 * Crée une cellule graphique pour chaque cellule de la grille
+	 */
+	public final void ajouterCellulesGraphiques() {
+		for (int i = 0; i < grilleJeu.nb_lignes; i++) {
+			for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
+				CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Cellules[i][j]); // création d'une nouvelle cellule graphique appelé cellGraph
+
+				cellGraph.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						Cellule c = cellGraph.celluleAssociee;
+						if (c.jetonCourant == null) {
+							texte_message.setText("");
+							return;
+						}
+						if (c.jetonCourant.Couleur.equals(joueurCourant.Couleur)) {
+							texte_message.setText(joueurCourant.Nom + " récupère un de ses jetons");
+							Jeton j_recup = c.recupererJeton();
+							c.supprimerJeton();
+							joueurCourant.ajouterJeton(j_recup);
+							joueurSuivant();
+						} else {
+							if (joueurCourant.nombreDesintegrateurs > 0) {
+								texte_message.setText(joueurCourant.Nom + " désintègre un jeton adverse");
+								c.supprimerJeton();
+								joueurCourant.utiliserDesintegrateur();
+								joueurSuivant();
+							}
+						}
+						grilleJeu.tasserGrille();
+						actualiserAffichage();
+					}
+				});
+				panneau_grille.add(cellGraph); // on ajoute les éléments cellGraph à notre panneau de jeu
+			}
+		}
+	}
+	
+	/**
+	 * Vide le panneau panneau_grille de tous ses éléments
+	 */
+	public void supprimerCellulesGraphiques() {
+		panneau_grille.removeAll();
+	}
+	
+	/**
 	* On utilise cette cette méthode pour factoriser le code
 	* Elle regroupe toutes les actions qui se font à chaque tour et qui
 	* nécessitent de changer l'affichage sans affecter les valeurs de jeu.
