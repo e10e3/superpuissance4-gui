@@ -7,6 +7,7 @@
 package superpuissance4;
 
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 /**
  * Crée l'interface graphique
@@ -19,7 +20,9 @@ public class fenetreJeu extends javax.swing.JFrame {
 	Joueur[] ListeJoueur = new Joueur[2];
 	Grille grilleJeu = new Grille();
 	Joueur joueurCourant;
-
+        ImageIcon img_iconetimer = new javax.swing.ImageIcon(getClass().getResource("/images/timer.png"));
+        
+  
 	/**
 	 * Creates new form fenetreJeu
 	 */
@@ -30,7 +33,8 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_joueur2.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
 		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
-
+                iconeTimer.setIcon(img_iconetimer);
+                
 		for (int i = 0; i < grilleJeu.nb_lignes; i++) {
 			for (int j = 0; j < grilleJeu.nb_colonnes; j++) {
 				CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Cellules[i][j]); // création d'une nouvelle cellule graphique appelé cellGraph
@@ -81,6 +85,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         nom_joueur1 = new javax.swing.JTextField();
         nom_joueur2 = new javax.swing.JTextField();
         btn_start = new javax.swing.JButton();
+        iconeTimer = new javax.swing.JLabel();
         panneau_info_partie = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -137,7 +142,8 @@ public class fenetreJeu extends javax.swing.JFrame {
                 btn_startActionPerformed(evt);
             }
         });
-        panneau_creation_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        panneau_creation_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        panneau_creation_partie.add(iconeTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 40, 40));
 
         getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 360, 130));
 
@@ -587,6 +593,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_col_6;
     private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
+    private javax.swing.JLabel iconeTimer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -616,4 +623,10 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_info_partie;
     private javax.swing.JTextArea texte_message;
     // End of variables declaration//GEN-END:variables
+ 
+
+
+
+
+
 }
