@@ -69,7 +69,13 @@ public class Partie {
 			}
 			ListeJoueur[i].nombreJetonsRestants = 21;
 		}
-
+		
+		/*
+		* Placement des trous noirs.
+		* Si il y a déjà un trou noir à l'endroit où on peut en placer un, on
+		* réessaye à un autre endroit.
+		* On en profite pour placer les deux désintégrateurs cachés.
+		 */
 		for (int k = 0; k < 5; k++) {
 			int i = rnd.nextInt(grilleJeu.nb_lignes);
 			int j = rnd.nextInt(grilleJeu.nb_colonnes);
