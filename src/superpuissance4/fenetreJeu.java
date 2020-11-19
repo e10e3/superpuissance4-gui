@@ -31,6 +31,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_joueur1.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_joueur2.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
+		panneau_legende.setVisible(false);
 		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
 
 		iconeTimer.setIcon(img_iconetimer);
@@ -48,6 +49,8 @@ public class fenetreJeu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panneau_legende = new javax.swing.JPanel();
+        btn_fermer_legende = new javax.swing.JButton();
         panneau_grille = new javax.swing.JPanel();
         panneau_creation_partie = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -91,6 +94,18 @@ public class fenetreJeu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panneau_legende.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_fermer_legende.setText("Fermer");
+        btn_fermer_legende.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_fermer_legendeActionPerformed(evt);
+            }
+        });
+        panneau_legende.add(btn_fermer_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, -1, -1));
+
+        getContentPane().add(panneau_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 410, 480));
 
         panneau_grille.setBackground(new java.awt.Color(254, 255, 255));
         panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
@@ -382,8 +397,14 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_recommencerActionPerformed
 
     private void btn_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_legendeActionPerformed
-        // TODO add your handling code here:
+        btn_legende.setEnabled(false);
+		panneau_legende.setVisible(true);
     }//GEN-LAST:event_btn_legendeActionPerformed
+
+    private void btn_fermer_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fermer_legendeActionPerformed
+        btn_legende.setEnabled(true);
+		panneau_legende.setVisible(false);
+    }//GEN-LAST:event_btn_fermer_legendeActionPerformed
 
 	public boolean jouerDansColonne(int j) {
 		boolean resultat;
@@ -626,6 +647,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_col_4;
     private javax.swing.JButton btn_col_5;
     private javax.swing.JButton btn_col_6;
+    private javax.swing.JButton btn_fermer_legende;
     private javax.swing.JButton btn_legende;
     private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
@@ -657,6 +679,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_info_joueur1;
     private javax.swing.JPanel panneau_info_joueur2;
     private javax.swing.JPanel panneau_info_partie;
+    private javax.swing.JPanel panneau_legende;
     private javax.swing.JTextArea texte_message;
     // End of variables declaration//GEN-END:variables
 
