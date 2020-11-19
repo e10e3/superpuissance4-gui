@@ -51,6 +51,11 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         panneau_legende = new javax.swing.JPanel();
         btn_fermer_legende = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         panneau_grille = new javax.swing.JPanel();
         panneau_creation_partie = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -95,6 +100,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         setBackground(java.awt.Color.white);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panneau_legende.setBackground(java.awt.Color.lightGray);
         panneau_legende.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_fermer_legende.setText("Fermer");
@@ -103,9 +109,34 @@ public class fenetreJeu extends javax.swing.JFrame {
                 btn_fermer_legendeActionPerformed(evt);
             }
         });
-        panneau_legende.add(btn_fermer_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, -1, -1));
+        panneau_legende.add(btn_fermer_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 520, -1, -1));
 
-        getContentPane().add(panneau_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 410, 480));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/desintegrateur.png"))); // NOI18N
+        jLabel8.setText("Désintégrateur");
+        panneau_legende.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/celluleVide.png"))); // NOI18N
+        jLabel12.setText("Cellule vide");
+        panneau_legende.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jetonRouge.png"))); // NOI18N
+        jLabel13.setText("Jeton rouge");
+        panneau_legende.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jetonJaune.png"))); // NOI18N
+        jLabel14.setText("Jeton jaune");
+        panneau_legende.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trouNoir.png"))); // NOI18N
+        jLabel15.setText("Trou noir");
+        panneau_legende.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+
+        getContentPane().add(panneau_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 410, 560));
 
         panneau_grille.setBackground(new java.awt.Color(254, 255, 255));
         panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
@@ -655,12 +686,17 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbl_j1_couleur;
     private javax.swing.JLabel lbl_j1_desint;
