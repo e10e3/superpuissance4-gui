@@ -86,6 +86,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_j2_desint = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lbl_j2_jetons = new javax.swing.JLabel();
+        btn_legende = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
@@ -270,6 +271,14 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         getContentPane().add(panneau_info_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 260, 360, 110));
 
+        btn_legende.setText("Légende");
+        btn_legende.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_legendeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, -1, -1));
+
         setBounds(0, 0, 1210, 692);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -371,6 +380,10 @@ public class fenetreJeu extends javax.swing.JFrame {
 		actualiserAffichage();
 		btn_recommencer.setEnabled(false);
     }//GEN-LAST:event_btn_recommencerActionPerformed
+
+    private void btn_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_legendeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_legendeActionPerformed
 
 	public boolean jouerDansColonne(int j) {
 		boolean resultat;
@@ -613,6 +626,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_col_4;
     private javax.swing.JButton btn_col_5;
     private javax.swing.JButton btn_col_6;
+    private javax.swing.JButton btn_legende;
     private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
     private javax.swing.JLabel iconeTimer;
