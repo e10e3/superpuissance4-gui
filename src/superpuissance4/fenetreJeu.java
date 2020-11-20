@@ -12,7 +12,6 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
-
 /**
  * Crée l'interface graphique
  *
@@ -25,27 +24,25 @@ public class fenetreJeu extends javax.swing.JFrame {
 	Grille grilleJeu = new Grille();
 	Joueur joueurCourant;
 	ImageIcon img_iconetimer = new javax.swing.ImageIcon(getClass().getResource("/images/timer.png"));
-        int nbSecondes = 0;
-        Timer monChrono;
-            
+	int nbSecondes = 0;
+	Timer monChrono;
 
-        
 	/**
 	 * Creates new form fenetreJeu
 	 */
 	public fenetreJeu() {
 		initComponents();
-                          
-                        ActionListener tache_recurrente = new ActionListener() {
-                        public void actionPerformed(ActionEvent e1) {
-                            nbSecondes++;
-                            texte_temps.setText(nbSecondes + "");
-                        }
-                         ;
-                        };
-                         /* instanciation du timer */
-                        monChrono = new Timer(1000, tache_recurrente);
-    
+
+		ActionListener tache_recurrente = new ActionListener() {
+			public void actionPerformed(ActionEvent e1) {
+				nbSecondes++;
+				texte_temps.setText(nbSecondes + "");
+			};
+		};
+		
+		/* Instanciation du timer */
+	   monChrono = new Timer(1000, tache_recurrente);
+
 		// on cache les deux panneaux suivant ( en créant deux boolean initailisé à  faux)
 		panneau_info_joueur1.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_joueur2.setVisible(false); // ce panneau est maintenant caché
@@ -119,8 +116,11 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         fenetreLegende.setTitle("Légende");
         fenetreLegende.setAlwaysOnTop(true);
-        fenetreLegende.setLocation(new java.awt.Point(450, 90));
+        fenetreLegende.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fenetreLegende.setLocation(new java.awt.Point(450, 80));
         fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 620));
+        fenetreLegende.setUndecorated(true);
+        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setResizable(false);
         fenetreLegende.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -363,7 +363,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
 		btn_recommencer.setEnabled(false); // le btn pour recommencer une partie n'apparait pas encore
 		initialiserPartie();
-                monChrono.start(); 
+		monChrono.start();
 		panneau_grille.repaint(); // raffraichit l'affichage de la partie et le redessine complètement
 		btn_start.setEnabled(false); // on désactive le btn_start pour pas que les utilisateurs s'amusent à rafraichir la partie et avoir une nouvelle grille
     }//GEN-LAST:event_btn_startActionPerformed
@@ -452,9 +452,9 @@ public class fenetreJeu extends javax.swing.JFrame {
 		ajouterCellulesGraphiques();
 		initialiserPartie();
 		actualiserAffichage();
-                    nbSecondes = 0;
-                    texte_temps.setText(nbSecondes + "");
-                    monChrono.start(); 
+		nbSecondes = 0;
+		texte_temps.setText(nbSecondes + "");
+		monChrono.start();
 		btn_recommencer.setEnabled(false);
     }//GEN-LAST:event_btn_recommencerActionPerformed
 
@@ -464,7 +464,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_legendeActionPerformed
 
     private void btn_fermer_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fermer_legendeActionPerformed
-        fenetreLegende.setVisible(false);
+		fenetreLegende.setVisible(false);
 		btn_legende.setEnabled(true);
     }//GEN-LAST:event_btn_fermer_legendeActionPerformed
 
@@ -548,17 +548,17 @@ public class fenetreJeu extends javax.swing.JFrame {
 		if (v_j1 && !v_j2) {
 			texte_message.setText("Victoire de " + ListeJoueur[0].Nom + " ! Félicitations.");
 			btn_recommencer.setEnabled(true);
-                        monChrono.stop();
+			monChrono.stop();
 		}
 		if (v_j2 && !v_j1) {
 			texte_message.setText("Victoire de " + ListeJoueur[1].Nom + " ! Félicitations.");
 			btn_recommencer.setEnabled(true);
-                        monChrono.stop();
+			monChrono.stop();
 		}
 		if (v_j1 && v_j2) {
 			texte_message.setText(joueurCourant.Nom + " a perdu ! Une faute de jeu, c'est dommage.");
 			btn_recommencer.setEnabled(true);
-                        
+
 		}
 	}
 
