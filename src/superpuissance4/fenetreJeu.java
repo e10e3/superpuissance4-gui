@@ -26,7 +26,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 	ImageIcon img_iconetimer = new javax.swing.ImageIcon(getClass().getResource("/images/timer.png"));
 	int nbSecondes = 0;
 	Timer monChrono;
-
+           
 	/**
 	 * Creates new form fenetreJeu
 	 */
@@ -51,7 +51,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
 
 		iconeTimer.setIcon(img_iconetimer);
-
+                
 		ajouterCellulesGraphiques();
 
 	}
@@ -83,7 +83,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         texte_temps = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         panneau_info_partie = new javax.swing.JPanel();
-        gif_bravo = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbl_jcourant = new javax.swing.JLabel();
@@ -119,9 +119,9 @@ public class fenetreJeu extends javax.swing.JFrame {
         fenetreLegende.setAlwaysOnTop(true);
         fenetreLegende.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fenetreLegende.setLocation(new java.awt.Point(450, 80));
-        fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 600));
+        fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setUndecorated(true);
-        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 600));
+        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setResizable(false);
         fenetreLegende.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -193,8 +193,8 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_partie.setBackground(new java.awt.Color(209, 232, 232));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        gif_bravo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gif-bravo-2.gif"))); // NOI18N
-        panneau_info_partie.add(gif_bravo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gif-bravo.gif"))); // NOI18N
+        panneau_info_partie.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
         jLabel3.setText("Informations jeu : ");
@@ -717,7 +717,6 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
     private javax.swing.JFrame fenetreLegende;
-    private javax.swing.JLabel gif_bravo;
     private javax.swing.JLabel iconeTimer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -727,6 +726,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
