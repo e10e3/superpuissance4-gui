@@ -122,7 +122,6 @@ public class fenetreJeu extends javax.swing.JFrame {
         fenetreLegende.setLocation(new java.awt.Point(450, 80));
         fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setUndecorated(true);
-        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setResizable(false);
         fenetreLegende.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
