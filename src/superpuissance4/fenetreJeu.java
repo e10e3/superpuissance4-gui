@@ -50,7 +50,6 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_joueur1.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_joueur2.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
-		panneau_legende.setVisible(false);
 		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
 
 		iconeTimer.setIcon(img_iconetimer);
@@ -68,7 +67,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panneau_legende = new javax.swing.JPanel();
+        fenetreLegende = new javax.swing.JFrame();
         btn_fermer_legende = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -117,12 +116,13 @@ public class fenetreJeu extends javax.swing.JFrame {
         lbl_j2_jetons = new javax.swing.JLabel();
         btn_legende = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(java.awt.Color.white);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panneau_legende.setBackground(java.awt.Color.lightGray);
-        panneau_legende.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        fenetreLegende.setTitle("Légende");
+        fenetreLegende.setAlwaysOnTop(true);
+        fenetreLegende.setLocation(new java.awt.Point(450, 90));
+        fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 620));
+        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 620));
+        fenetreLegende.setResizable(false);
+        fenetreLegende.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_fermer_legende.setText("Fermer");
         btn_fermer_legende.addActionListener(new java.awt.event.ActionListener() {
@@ -130,34 +130,31 @@ public class fenetreJeu extends javax.swing.JFrame {
                 btn_fermer_legendeActionPerformed(evt);
             }
         });
-        panneau_legende.add(btn_fermer_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 520, -1, -1));
+        fenetreLegende.getContentPane().add(btn_fermer_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 530, -1, -1));
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/desintegrateur.png"))); // NOI18N
-        jLabel8.setText("Désintégrateur");
-        panneau_legende.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trouNoir.png"))); // NOI18N
+        jLabel8.setText("Trou noir");
+        fenetreLegende.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
 
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/celluleVide.png"))); // NOI18N
-        jLabel12.setText("Cellule vide");
-        panneau_legende.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        jLabel12.setText("Case vide");
+        fenetreLegende.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jetonRouge.png"))); // NOI18N
-        jLabel13.setText("Jeton rouge");
-        panneau_legende.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jetonJaune.png"))); // NOI18N
+        jLabel13.setText("Jeton jaune");
+        fenetreLegende.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jetonJaune.png"))); // NOI18N
-        jLabel14.setText("Jeton jaune");
-        panneau_legende.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jetonRouge.png"))); // NOI18N
+        jLabel14.setText("Jeton rouge");
+        fenetreLegende.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trouNoir.png"))); // NOI18N
-        jLabel15.setText("Trou noir");
-        panneau_legende.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/desintegrateur.png"))); // NOI18N
+        jLabel15.setText("Désintégrateur");
+        fenetreLegende.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
-        getContentPane().add(panneau_legende, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 410, 560));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(java.awt.Color.white);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panneau_grille.setBackground(new java.awt.Color(254, 255, 255));
         panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
@@ -457,14 +454,13 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_recommencerActionPerformed
 
     private void btn_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_legendeActionPerformed
-        btn_legende.setEnabled(false);
-            panneau_legende.setVisible(true);
-                
+		btn_legende.setEnabled(false);
+		fenetreLegende.setVisible(true);
     }//GEN-LAST:event_btn_legendeActionPerformed
 
     private void btn_fermer_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fermer_legendeActionPerformed
-        btn_legende.setEnabled(true);
-            panneau_legende.setVisible(false);
+        fenetreLegende.setVisible(false);
+		btn_legende.setEnabled(true);
     }//GEN-LAST:event_btn_fermer_legendeActionPerformed
 
 	public boolean jouerDansColonne(int j) {
@@ -570,42 +566,6 @@ public class fenetreJeu extends javax.swing.JFrame {
 		lbl_jcourant.setText(joueurCourant.Nom);
 	}
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-		/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-		 */
-		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(fenetreJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(fenetreJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(fenetreJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(fenetreJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		//</editor-fold>
-
-		/* Create and display the form */
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				new fenetreJeu().setVisible(true);
-			}
-		});
-	}
-
 	public void initialiserPartie() {
 		Random rnd = new Random();
 
@@ -701,6 +661,42 @@ public class fenetreJeu extends javax.swing.JFrame {
 				+ " prend la couleur " + ListeJoueur[1].lireCouleur() + ".");
 	}
 
+	/**
+	 * @param args the command line arguments
+	 */
+	public static void main(String args[]) {
+		/* Set the Nimbus look and feel */
+		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+		/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+		 */
+		try {
+			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					javax.swing.UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (ClassNotFoundException ex) {
+			java.util.logging.Logger.getLogger(fenetreJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			java.util.logging.Logger.getLogger(fenetreJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			java.util.logging.Logger.getLogger(fenetreJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+			java.util.logging.Logger.getLogger(fenetreJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		}
+		//</editor-fold>
+
+		/* Create and display the form */
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				new fenetreJeu().setVisible(true);
+			}
+		});
+	}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;
@@ -713,6 +709,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_legende;
     private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
+    private javax.swing.JFrame fenetreLegende;
     private javax.swing.JLabel iconeTimer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
