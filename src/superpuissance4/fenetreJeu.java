@@ -83,6 +83,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         btn_start = new javax.swing.JButton();
         iconeTimer = new javax.swing.JLabel();
         texte_temps = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         panneau_info_partie = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -120,7 +121,6 @@ public class fenetreJeu extends javax.swing.JFrame {
         fenetreLegende.setAlwaysOnTop(true);
         fenetreLegende.setLocation(new java.awt.Point(450, 90));
         fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 620));
-        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setResizable(false);
         fenetreLegende.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -178,8 +178,13 @@ public class fenetreJeu extends javax.swing.JFrame {
             }
         });
         panneau_creation_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-        panneau_creation_partie.add(iconeTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 40, 40));
-        panneau_creation_partie.add(texte_temps, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+        panneau_creation_partie.add(iconeTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 40, 40));
+
+        texte_temps.setText("0");
+        panneau_creation_partie.add(texte_temps, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 95, -1, -1));
+
+        jLabel16.setText("temps écoulé");
+        panneau_creation_partie.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 95, -1, -1));
 
         getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 360, 130));
 
@@ -718,6 +723,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -743,7 +749,6 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_info_joueur1;
     private javax.swing.JPanel panneau_info_joueur2;
     private javax.swing.JPanel panneau_info_partie;
-    private javax.swing.JPanel panneau_legende;
     private javax.swing.JButton test;
     private javax.swing.JTextArea texte_message;
     private javax.swing.JLabel texte_temps;
