@@ -37,9 +37,10 @@ public class fenetreJeu extends javax.swing.JFrame {
 			public void actionPerformed(ActionEvent e1) {
 				nbSecondes++;
 				texte_temps.setText(nbSecondes + "");
-			};
+			}
+		;
 		};
-		
+
 		/* Instanciation du timer */
 	   monChrono = new Timer(1000, tache_recurrente);
 
@@ -82,13 +83,13 @@ public class fenetreJeu extends javax.swing.JFrame {
         texte_temps = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         panneau_info_partie = new javax.swing.JPanel();
+        gif_bravo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbl_jcourant = new javax.swing.JLabel();
         message = new javax.swing.JScrollPane();
         texte_message = new javax.swing.JTextArea();
         btn_recommencer = new javax.swing.JButton();
-        test = new javax.swing.JButton();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
@@ -118,9 +119,9 @@ public class fenetreJeu extends javax.swing.JFrame {
         fenetreLegende.setAlwaysOnTop(true);
         fenetreLegende.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fenetreLegende.setLocation(new java.awt.Point(450, 80));
-        fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 620));
+        fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 600));
         fenetreLegende.setUndecorated(true);
-        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 620));
+        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 600));
         fenetreLegende.setResizable(false);
         fenetreLegende.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -153,6 +154,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         fenetreLegende.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Super Puissance 4");
         setBackground(java.awt.Color.white);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -191,6 +193,9 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_partie.setBackground(new java.awt.Color(209, 232, 232));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        gif_bravo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gif-bravo-2.gif"))); // NOI18N
+        panneau_info_partie.add(gif_bravo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+
         jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
         jLabel3.setText("Informations jeu : ");
         panneau_info_partie.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -214,9 +219,6 @@ public class fenetreJeu extends javax.swing.JFrame {
             }
         });
         panneau_info_partie.add(btn_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 215, -1, -1));
-
-        test.setText("jButton1");
-        panneau_info_partie.add(test, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 115, 220, 90));
 
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 360, 246));
 
@@ -715,6 +717,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
     private javax.swing.JFrame fenetreLegende;
+    private javax.swing.JLabel gif_bravo;
     private javax.swing.JLabel iconeTimer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -749,7 +752,6 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_info_joueur1;
     private javax.swing.JPanel panneau_info_joueur2;
     private javax.swing.JPanel panneau_info_partie;
-    private javax.swing.JButton test;
     private javax.swing.JTextArea texte_message;
     private javax.swing.JLabel texte_temps;
     // End of variables declaration//GEN-END:variables
