@@ -26,7 +26,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 	ImageIcon img_iconetimer = new javax.swing.ImageIcon(getClass().getResource("/images/timer.png"));
 	int nbSecondes = 0;
 	Timer monChrono;
-
+           
 	/**
 	 * Creates new form fenetreJeu
 	 */
@@ -50,7 +50,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
 
 		iconeTimer.setIcon(img_iconetimer);
-
+                
 		ajouterCellulesGraphiques();
 
 	}
@@ -88,7 +88,6 @@ public class fenetreJeu extends javax.swing.JFrame {
         message = new javax.swing.JScrollPane();
         texte_message = new javax.swing.JTextArea();
         btn_recommencer = new javax.swing.JButton();
-        test = new javax.swing.JButton();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
@@ -120,7 +119,6 @@ public class fenetreJeu extends javax.swing.JFrame {
         fenetreLegende.setLocation(new java.awt.Point(450, 80));
         fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setUndecorated(true);
-        fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setResizable(false);
         fenetreLegende.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -214,9 +212,6 @@ public class fenetreJeu extends javax.swing.JFrame {
             }
         });
         panneau_info_partie.add(btn_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 215, -1, -1));
-
-        test.setText("jButton1");
-        panneau_info_partie.add(test, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 115, 220, 90));
 
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 360, 246));
 
@@ -749,7 +744,6 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_info_joueur1;
     private javax.swing.JPanel panneau_info_joueur2;
     private javax.swing.JPanel panneau_info_partie;
-    private javax.swing.JButton test;
     private javax.swing.JTextArea texte_message;
     private javax.swing.JLabel texte_temps;
     // End of variables declaration//GEN-END:variables
