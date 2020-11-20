@@ -6,8 +6,12 @@
  */
 package superpuissance4;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
+
 
 /**
  * Crée l'interface graphique
@@ -21,12 +25,27 @@ public class fenetreJeu extends javax.swing.JFrame {
 	Grille grilleJeu = new Grille();
 	Joueur joueurCourant;
 	ImageIcon img_iconetimer = new javax.swing.ImageIcon(getClass().getResource("/images/timer.png"));
+        int nbSecondes = 0;
+        Timer monChrono;
+            
 
+        
 	/**
 	 * Creates new form fenetreJeu
 	 */
 	public fenetreJeu() {
 		initComponents();
+                          
+                        ActionListener tache_recurrente = new ActionListener() {
+                        public void actionPerformed(ActionEvent e1) {
+                            nbSecondes++;
+                            texte_temps.setText(nbSecondes + "");
+                        }
+                         ;
+                        };
+                         /* instanciation du timer */
+                        monChrono = new Timer(1000, tache_recurrente);
+    
 		// on cache les deux panneaux suivant ( en créant deux boolean initailisé à  faux)
 		panneau_info_joueur1.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_joueur2.setVisible(false); // ce panneau est maintenant caché
@@ -64,6 +83,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         nom_joueur2 = new javax.swing.JTextField();
         btn_start = new javax.swing.JButton();
         iconeTimer = new javax.swing.JLabel();
+        texte_temps = new javax.swing.JLabel();
         panneau_info_partie = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -71,6 +91,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         message = new javax.swing.JScrollPane();
         texte_message = new javax.swing.JTextArea();
         btn_recommencer = new javax.swing.JButton();
+        test = new javax.swing.JButton();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
@@ -161,6 +182,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         });
         panneau_creation_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
         panneau_creation_partie.add(iconeTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 40, 40));
+        panneau_creation_partie.add(texte_temps, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
         getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 360, 130));
 
@@ -190,6 +212,9 @@ public class fenetreJeu extends javax.swing.JFrame {
             }
         });
         panneau_info_partie.add(btn_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 215, -1, -1));
+
+        test.setText("jButton1");
+        panneau_info_partie.add(test, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 115, 220, 90));
 
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 360, 246));
 
@@ -336,6 +361,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_partie.setVisible(true); // on fait de même pour le panneau d'informations de la partie
 		btn_recommencer.setEnabled(false); // le btn pour recommencer une partie n'apparait pas encore
 		initialiserPartie();
+                monChrono.start(); 
 		panneau_grille.repaint(); // raffraichit l'affichage de la partie et le redessine complètement
 		btn_start.setEnabled(false); // on désactive le btn_start pour pas que les utilisateurs s'amusent à rafraichir la partie et avoir une nouvelle grille
     }//GEN-LAST:event_btn_startActionPerformed
@@ -424,17 +450,21 @@ public class fenetreJeu extends javax.swing.JFrame {
 		ajouterCellulesGraphiques();
 		initialiserPartie();
 		actualiserAffichage();
+                    nbSecondes = 0;
+                    texte_temps.setText(nbSecondes + "");
+                    monChrono.start(); 
 		btn_recommencer.setEnabled(false);
     }//GEN-LAST:event_btn_recommencerActionPerformed
 
     private void btn_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_legendeActionPerformed
         btn_legende.setEnabled(false);
-		panneau_legende.setVisible(true);
+            panneau_legende.setVisible(true);
+                
     }//GEN-LAST:event_btn_legendeActionPerformed
 
     private void btn_fermer_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fermer_legendeActionPerformed
         btn_legende.setEnabled(true);
-		panneau_legende.setVisible(false);
+            panneau_legende.setVisible(false);
     }//GEN-LAST:event_btn_fermer_legendeActionPerformed
 
 	public boolean jouerDansColonne(int j) {
@@ -517,16 +547,17 @@ public class fenetreJeu extends javax.swing.JFrame {
 		if (v_j1 && !v_j2) {
 			texte_message.setText("Victoire de " + ListeJoueur[0].Nom + " ! Félicitations.");
 			btn_recommencer.setEnabled(true);
+                        monChrono.stop();
 		}
 		if (v_j2 && !v_j1) {
 			texte_message.setText("Victoire de " + ListeJoueur[1].Nom + " ! Félicitations.");
 			btn_recommencer.setEnabled(true);
-
+                        monChrono.stop();
 		}
 		if (v_j1 && v_j2) {
 			texte_message.setText(joueurCourant.Nom + " a perdu ! Une faute de jeu, c'est dommage.");
 			btn_recommencer.setEnabled(true);
-
+                        
 		}
 	}
 
@@ -716,7 +747,9 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_info_joueur2;
     private javax.swing.JPanel panneau_info_partie;
     private javax.swing.JPanel panneau_legende;
+    private javax.swing.JButton test;
     private javax.swing.JTextArea texte_message;
+    private javax.swing.JLabel texte_temps;
     // End of variables declaration//GEN-END:variables
 
 }
