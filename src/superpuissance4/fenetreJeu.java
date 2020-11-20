@@ -48,6 +48,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		panneau_info_joueur1.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_joueur2.setVisible(false); // ce panneau est maintenant caché
 		panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
+		gif_bravo.setVisible(false); // On cache le GIF tant que personne n'a gagné
 		// on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
 
 		iconeTimer.setIcon(img_iconetimer);
@@ -83,7 +84,7 @@ public class fenetreJeu extends javax.swing.JFrame {
         texte_temps = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         panneau_info_partie = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
+        gif_bravo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbl_jcourant = new javax.swing.JLabel();
@@ -193,8 +194,8 @@ public class fenetreJeu extends javax.swing.JFrame {
         panneau_info_partie.setBackground(new java.awt.Color(209, 232, 232));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gif-bravo.gif"))); // NOI18N
-        panneau_info_partie.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
+        gif_bravo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gif-bravo.gif"))); // NOI18N
+        panneau_info_partie.add(gif_bravo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
         jLabel3.setText("Informations jeu : ");
@@ -457,6 +458,7 @@ public class fenetreJeu extends javax.swing.JFrame {
 		nbSecondes = 0;
 		texte_temps.setText(nbSecondes + "");
 		monChrono.start();
+		gif_bravo.setVisible(false);
 		btn_recommencer.setEnabled(false);
     }//GEN-LAST:event_btn_recommencerActionPerformed
 
@@ -550,11 +552,13 @@ public class fenetreJeu extends javax.swing.JFrame {
 		if (v_j1 && !v_j2) {
 			texte_message.setText("Victoire de " + ListeJoueur[0].Nom + " ! Félicitations.");
 			btn_recommencer.setEnabled(true);
+			gif_bravo.setVisible(true);
 			monChrono.stop();
 		}
 		if (v_j2 && !v_j1) {
 			texte_message.setText("Victoire de " + ListeJoueur[1].Nom + " ! Félicitations.");
 			btn_recommencer.setEnabled(true);
+			gif_bravo.setVisible(true);
 			monChrono.stop();
 		}
 		if (v_j1 && v_j2) {
@@ -717,6 +721,7 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JButton btn_recommencer;
     private javax.swing.JButton btn_start;
     private javax.swing.JFrame fenetreLegende;
+    private javax.swing.JLabel gif_bravo;
     private javax.swing.JLabel iconeTimer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -726,7 +731,6 @@ public class fenetreJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
