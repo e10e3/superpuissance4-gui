@@ -97,8 +97,10 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         fenetreLegende.setTitle("Légende");
         fenetreLegende.setAlwaysOnTop(true);
-        fenetreLegende.setLocation(new java.awt.Point(450, 90));
+        fenetreLegende.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fenetreLegende.setLocation(new java.awt.Point(450, 80));
         fenetreLegende.setMinimumSize(new java.awt.Dimension(400, 620));
+        fenetreLegende.setUndecorated(true);
         fenetreLegende.setPreferredSize(new java.awt.Dimension(400, 620));
         fenetreLegende.setResizable(false);
         fenetreLegende.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
