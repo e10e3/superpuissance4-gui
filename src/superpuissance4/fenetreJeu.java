@@ -24,9 +24,10 @@ public class fenetreJeu extends javax.swing.JFrame {
     Joueur[] ListeJoueur = new Joueur[2];
     Grille grilleJeu = new Grille();
     Joueur joueurCourant;
+    // insertion de l'image pour notre chrono
+    ImageIcon img_iconetimer = new javax.swing.ImageIcon(getClass().getResource("/images/timer.png")); 
 
-    ImageIcon img_iconetimer = new javax.swing.ImageIcon(getClass().getResource("/images/timer.png")); // insertion de l'image pour notre chrono
-    // attributs utilisés pour le chrono
+    // variables utilisées pour le chrono
     int nbSecondes = 0;
     Timer monChrono;
 
@@ -34,9 +35,10 @@ public class fenetreJeu extends javax.swing.JFrame {
     public fenetreJeu() {
         initComponents();
 
+        // création du chrono
         ActionListener tache_recurrente = new ActionListener() {
             public void actionPerformed(ActionEvent e1) {
-                nbSecondes++;
+                nbSecondes++; // incrémentation du nombres de seconde
                 texte_temps.setText(nbSecondes + "");
             }
         ;
@@ -44,15 +46,14 @@ public class fenetreJeu extends javax.swing.JFrame {
 
         /* Instanciation du timer */
        monChrono = new Timer(1000, tache_recurrente);
-
+        iconeTimer.setIcon(img_iconetimer); // création de la petite image avec le chrono
+       
         // on cache les deux panneaux suivant ( en créant deux boolean initailisé à  faux)
         panneau_info_joueur1.setVisible(false); // ce panneau est maintenant caché
         panneau_info_joueur2.setVisible(false); // ce panneau est maintenant caché
         panneau_info_partie.setVisible(false); // on fait de même pour le panneau information partie
         gif_bravo.setVisible(false); // On cache le GIF tant que personne n'a gagné
         // on rendra ces panneaux visibles seuleument lorsqu'on aura cliqué sur le bouton "Démarrer la partie"
-
-        iconeTimer.setIcon(img_iconetimer);
 
         ajouterCellulesGraphiques();
 
@@ -373,9 +374,9 @@ public class fenetreJeu extends javax.swing.JFrame {
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
         if (jouerDansColonne(0)) {
-            if (grilleJeu.colonneRemplie(0)) {
-                btn_col_0.setEnabled(false);
-            }
+            if (grilleJeu.colonneRemplie(0)) { // si la colonne est remplie
+                btn_col_0.setEnabled(false); // on désactive le bouton de la colonne lorsque celle-ci est pleine 
+            }// pour que les joueurs ne puissent pas jouer dedans
             joueurSuivant();
         } else {
             texte_message.setText(joueurCourant.Nom + " n'a plus de jetons");
@@ -449,27 +450,29 @@ public class fenetreJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
     private void btn_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recommencerActionPerformed
-        grilleJeu = new Grille();
+        grilleJeu = new Grille(); // création d'une nouvelle grille de jeu
         texte_message.setText("");
-        supprimerCellulesGraphiques();
-        ajouterCellulesGraphiques();
-        initialiserPartie();
-        actualiserAffichage();
-        nbSecondes = 0;
+        supprimerCellulesGraphiques(); // on supprimer toutes les cellules de la partie précédente
+        ajouterCellulesGraphiques(); // on recrée de nouvelles cellules ( toutes vides)
+        initialiserPartie(); // on initialise la partie : placement trous noirs, désintégrateurs etc...
+        actualiserAffichage(); 
+        nbSecondes = 0; // reinitialisation du chrono lorsqu'on qu'on recommence une nouvelle partie
         texte_temps.setText(nbSecondes + "");
-        monChrono.start();
-        gif_bravo.setVisible(false);
-        btn_recommencer.setEnabled(false);
+        monChrono.start(); // le chrono est lancé
+        gif_bravo.setVisible(false); // on cache de nouveau le gif de victoire pour pouvoir le re-afficher uniquement en cas de victoire
+        btn_recommencer.setEnabled(false); // on désactive le btn_recommencer pour pas que les utilisateurs s'amusent à rafraichir la partie et avoir une nouvelle grille
     }//GEN-LAST:event_btn_recommencerActionPerformed
 
     private void btn_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_legendeActionPerformed
-        btn_legende.setEnabled(false);
-        fenetreLegende.setVisible(true);
+        // action lorqu'on clique sur le bouton légende
+        btn_legende.setEnabled(false); // on ne peut pas appuyer sur le bouton légende tant qu'on a pas fermer la fentere de légende
+        fenetreLegende.setVisible(true); // la fenetre de légende apparaît et s'affiche
     }//GEN-LAST:event_btn_legendeActionPerformed
 
     private void btn_fermer_legendeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fermer_legendeActionPerformed
-        fenetreLegende.setVisible(false);
-        btn_legende.setEnabled(true);
+        // action lorqu'on clique sur le bouton fermer
+        fenetreLegende.setVisible(false); // fermeture de la fenêtre de légende
+        btn_legende.setEnabled(true); // on peut si on le souhaite re-ouvrir le tout en cliquant à nouveau sur le bouton légende
     }//GEN-LAST:event_btn_fermer_legendeActionPerformed
 
     public boolean jouerDansColonne(int j) {
@@ -540,11 +543,11 @@ public class fenetreJeu extends javax.swing.JFrame {
         ce n'est pas le cas (ex : colonne remplie puis au tour suivant désintégartion d'un jeton de 
          cette colonne => reactivation du bouton) */
         JButton tab_btn[] = {btn_col_0, btn_col_1, btn_col_2, btn_col_3, btn_col_4, btn_col_5, btn_col_6};
-        for (int i = 0; i < grilleJeu.nb_colonnes; i++) {
-            if (grilleJeu.celluleOccupee(0, i)) {
-                tab_btn[i].setEnabled(false);
-            } else {
-                tab_btn[i].setEnabled(true);
+        for (int i = 0; i < grilleJeu.nb_colonnes; i++) { // test sur chacunes des colonnes
+            if (grilleJeu.celluleOccupee(0, i)) { // si la cellule du haut est occupée
+                tab_btn[i].setEnabled(false); // desactivation du bouton pour jouer dans la colonne
+            } else { 
+                tab_btn[i].setEnabled(true); // sinon si elle n'est plus occupée on re-active le bouton pour pouvoir jouer
             }
         }
 
@@ -561,6 +564,8 @@ public class fenetreJeu extends javax.swing.JFrame {
         boolean v_j2 = grilleJeu.estGagnantePourJoueur(ListeJoueur[1]);
 
         /* Messages en cas de victoire(s) */
+        // lorqu'il y a une victoire d'un joueuer, on fait apparaître un gif de victoire
+        // et on arrête le chrono (celui-ci sera relancé uniquemenent si une nouvelle partie est lancé)
         if (v_j1 && !v_j2) {
             texte_message.setText("Victoire de " + ListeJoueur[0].Nom + " ! Félicitations.");
             btn_recommencer.setEnabled(true);
